@@ -1,0 +1,50 @@
+"","Kingdom","Phylum","Class","Order","Family","Genus","Species","total_reads"
+"1","Eukaryota","Chordata","Actinopteri","Clupeiformes","Engraulidae","Engraulis","Engraulis ringens",75485
+"2","Eukaryota","Chordata","Actinopteri","unknown","Sciaenidae","g_","s_",34495
+"3","no_hit","no_hit","no_hit","no_hit","no_hit","g_","s_",19736
+"4","Eukaryota","Chordata","Actinopteri","Clupeiformes","Engraulidae","g_","s_",16825
+"5","Eukaryota","Chordata","Actinopteri","Atheriniformes","Atherinopsidae","Odontesthes","unassigned",15393
+"6","Eukaryota","Chordata","Actinopteri","Pleuronectiformes","Paralichthyidae","Paralichthys","Paralichthys albigutta",14337
+"7","Eukaryota","Chordata","Actinopteri","Clupeiformes","Engraulidae","Engraulis","Engraulis mordax",8106
+"8","no_hit","no_hit","no_hit","no_hit","no_hit","no_hit","no_hit",5745
+"9","Eukaryota","Chordata","Actinopteri","Lutjaniformes","Haemulidae","g_","s_",4247
+"10","Eukaryota","Chordata","Actinopteri","Clupeiformes","Clupeidae","Ethmidium","Ethmidium maculatum",3800
+"11","Eukaryota","Chordata","Actinopteri","Clupeiformes","Engraulidae","Engraulis","s_",3607
+"12","Eukaryota","Chordata","Actinopteri","unknown","Sciaenidae","Bairdiella","s_",3582
+"13","Eukaryota","Chordata","Actinopteri","Pleuronectiformes","Paralichthyidae","Citharichthys","Citharichthys sordidus",2964
+"14","Eukaryota","Chordata","Actinopteri","unassigned","unassigned","g_","s_",2707
+"15","Eukaryota","Chordata","Actinopteri","Clupeiformes","Clupeidae","Sardinops","Sardinops melanostictus",2015
+"16","Eukaryota","Chordata","Actinopteri","Scombriformes","Scombridae","Scomber","unassigned",994
+"17","Eukaryota","Chordata","Actinopteri","Mugiliformes","Mugilidae","Mugil","Mugil cephalus",480
+"18","Eukaryota","Chordata","Actinopteri","unknown","Sciaenidae","Equetus","s_",404
+"19","Eukaryota","Chordata","Actinopteri","Tetraodontiformes","Molidae","Mola","unassigned",397
+"20","Eukaryota","Chordata","Actinopteri","Blenniiformes","Blenniidae","g_","s_",358
+"21","Eukaryota","Chordata","Actinopteri","Centrarchiformes","Cheilodactylidae","Cheilodactylus","Cheilodactylus variegatus",311
+"22","Eukaryota","Chordata","Actinopteri","Beloniformes","Exocoetidae","unassigned","s_",186
+"23","Eukaryota","Chordata","Aves","Pelecaniformes","Pelecanidae","Pelecanus","Pelecanus occidentalis",159
+"24","Eukaryota","Chordata","Actinopteri","Gadiformes","Merlucciidae","Merluccius","Merluccius productus",135
+"25","Eukaryota","Chordata","Actinopteri","Beloniformes","Belonidae","g_","s_",127
+"26","Eukaryota","Chordata","Actinopteri","Carangiformes","Carangidae","Seriola","Seriola lalandi",72
+"27","Eukaryota","Chordata","Actinopteri","Argentiniformes","Bathylagidae","Leuroglossus","Leuroglossus schmidti",50
+"28","Eukaryota","Chordata","Actinopteri","Perciformes","Sebastidae","Sebastes","unassigned",37
+"29","Eukaryota","Chordata","Actinopteri","unknown","Pomacentridae","Chromis","unassigned",18
+"30","Eukaryota","Chordata","Aves","Charadriiformes","Laridae","Larosterna","Larosterna inca",12
+"31","Eukaryota","Chordata","Actinopteri","Pleuronectiformes","Paralichthyidae","Citharichthys","unassigned",11
+"32","Eukaryota","Chordata","Actinopteri","Carangiformes","Carangidae","Trachurus","Trachurus symmetricus",8
+"33","Eukaryota","Chordata","Aves","Pelecaniformes","Sulidae","Sula","Sula nebouxii",7
+"34","Eukaryota","Chordata","Actinopteri","Pleuronectiformes","Pleuronectidae","unassigned","unassigned",5
+"35","Eukaryota","Chordata","Actinopteri","Myctophiformes","Myctophidae","Stenobrachius","Stenobrachius leucopsarus",3
+"36","Eukaryota","Chordata","Actinopteri","Myctophiformes","Myctophidae","Symbolophorus","Symbolophorus californiensis",3
+"37","Eukaryota","Chordata","Actinopteri","unknown","Sciaenidae","Genyonemus","Genyonemus lineatus",3
+"38","Eukaryota","Chordata","Mammalia","Artiodactyla","Balaenopteridae","Megaptera","Megaptera novaeangliae",3
+"39","Eukaryota","Echinodermata","Asteroidea","Paxillosida","Luidiidae","g_","s_",3
+"40","Eukaryota","Chordata","Actinopteri","Atheriniformes","Atherinopsidae","g_","s_",2
+"41","Eukaryota","Chordata","Actinopteri","Blenniiformes","Labrisomidae","g_","s_",1
+"42","Eukaryota","Chordata","Actinopteri","Centrarchiformes","Kyphosidae","Medialuna","Medialuna californiensis",1
+"43","Eukaryota","Chordata","Actinopteri","Clupeiformes","Clupeidae","Clupea","Clupea harengus",1
+"44","Eukaryota","Chordata","Actinopteri","Myctophiformes","Myctophidae","Lampadena","Lampadena urophaos",1
+"45","Eukaryota","Chordata","Actinopteri","Salmoniformes","Salmonidae","Oncorhynchus","Oncorhynchus tshawytscha",1
+"46","Eukaryota","Chordata","Actinopteri","Scombriformes","Centrolophidae","Icichthys","Icichthys lockingtoni",1
+"47","Eukaryota","Chordata","Actinopteri","unknown","Embiotocidae","Rhacochilus","Rhacochilus vacca",1
+"48","Eukaryota","Chordata","Mammalia","Artiodactyla","Delphinidae","unassigned","unassigned",1
+"49","Eukaryota","Chordata","Mammalia","Cetacea","Delphinidae","unassigned","unassigned",1

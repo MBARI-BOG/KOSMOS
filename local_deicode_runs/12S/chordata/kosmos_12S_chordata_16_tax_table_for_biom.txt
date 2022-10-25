@@ -1,0 +1,111 @@
+#OTUID	Kingdom	Phylum	Class	Order	Family	Genus	Species
+ASV_1	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_5	Eukaryota	Chordata	Actinopteri	Argentiniformes	Bathylagidae	Leuroglossus	Leuroglossus schmidti
+ASV_10	Eukaryota	Chordata	Actinopteri	Tetraodontiformes	Molidae	Mola	unassigned
+ASV_11	Eukaryota	Chordata	Actinopteri	Myctophiformes	Myctophidae	Stenobrachius	Stenobrachius leucopsarus
+ASV_15	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_17	Eukaryota	Chordata	Actinopteri	Pleuronectiformes	Paralichthyidae	Citharichthys	Citharichthys sordidus
+ASV_75	Eukaryota	Chordata	Actinopteri	Scombriformes	Centrolophidae	Icichthys	Icichthys lockingtoni
+ASV_143	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_222	Eukaryota	Chordata	Actinopteri	Myctophiformes	Myctophidae	Symbolophorus	Symbolophorus californiensis
+ASV_227	Eukaryota	Chordata	Mammalia	Artiodactyla	Balaenopteridae	Megaptera	Megaptera novaeangliae
+ASV_246	Eukaryota	Chordata	Actinopteri	Perciformes	Sebastidae	Sebastes	unassigned
+ASV_1923	Eukaryota	Chordata	Actinopteri	Gadiformes	Merlucciidae	Merluccius	Merluccius productus
+ASV_1924	Eukaryota	Chordata	Actinopteri	Carangiformes	Carangidae	Trachurus	Trachurus symmetricus
+ASV_1925	Eukaryota	Chordata	Actinopteri	Perciformes	Sebastidae	Sebastes	unassigned
+ASV_1926	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	Genyonemus	Genyonemus lineatus
+ASV_1932	Eukaryota	Chordata	Actinopteri	Scombriformes	Scombridae	Scomber	unassigned
+ASV_1936	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1942	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1946	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1948	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1951	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1952	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1955	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1967	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1970	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1973	Eukaryota	Chordata	Actinopteri	Pleuronectiformes	Pleuronectidae	unassigned	unassigned
+ASV_1980	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1982	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_1999	Eukaryota	Chordata	Mammalia	Cetacea	Delphinidae	unassigned	unassigned
+ASV_2190	Eukaryota	Chordata	Actinopteri	Salmoniformes	Salmonidae	Oncorhynchus	Oncorhynchus tshawytscha
+ASV_3385	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_3391	Eukaryota	Chordata	Actinopteri	unknown	Embiotocidae	Rhacochilus	Rhacochilus vacca
+ASV_4168	Eukaryota	Chordata	Actinopteri	Argentiniformes	Bathylagidae	Leuroglossus	Leuroglossus schmidti
+ASV_5140	Eukaryota	Chordata	Actinopteri	Carangiformes	Carangidae	Seriola	Seriola lalandi
+ASV_5151	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_5154	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_5157	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_5162	Eukaryota	Chordata	Actinopteri	Argentiniformes	Bathylagidae	Leuroglossus	Leuroglossus schmidti
+ASV_5177	Eukaryota	Chordata	Actinopteri	Perciformes	Sebastidae	Sebastes	unassigned
+ASV_5217	Eukaryota	Chordata	Actinopteri	Myctophiformes	Myctophidae	Symbolophorus	Symbolophorus californiensis
+ASV_5243	Eukaryota	Chordata	Mammalia	Artiodactyla	Delphinidae	unassigned	unassigned
+ASV_8223	Eukaryota	Chordata	Actinopteri	Centrarchiformes	Kyphosidae	Medialuna	Medialuna californiensis
+ASV_14239	Eukaryota	Chordata	Actinopteri	Clupeiformes	Clupeidae	Clupea	Clupea harengus
+ASV_14795	Eukaryota	Chordata	Actinopteri	Blenniiformes	Labrisomidae	g_	s_
+ASV_26758	Eukaryota	Chordata	Actinopteri	Argentiniformes	Bathylagidae	Leuroglossus	Leuroglossus schmidti
+ASV_26772	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_27936	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis ringens
+ASV_27937	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	g_	s_
+ASV_27938	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	g_	s_
+ASV_27939	Eukaryota	Chordata	Actinopteri	Pleuronectiformes	Paralichthyidae	Paralichthys	Paralichthys albigutta
+ASV_27940	Eukaryota	Chordata	Actinopteri	Argentiniformes	Bathylagidae	Leuroglossus	Leuroglossus schmidti
+ASV_27941	Eukaryota	Chordata	Actinopteri	Atheriniformes	Atherinopsidae	Odontesthes	unassigned
+ASV_27943	Eukaryota	Chordata	Actinopteri	Atheriniformes	Atherinopsidae	Odontesthes	unassigned
+ASV_27944	Eukaryota	Chordata	Actinopteri	Pleuronectiformes	Paralichthyidae	Citharichthys	Citharichthys sordidus
+ASV_27946	Eukaryota	Chordata	Actinopteri	Lutjaniformes	Haemulidae	g_	s_
+ASV_27947	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	s_
+ASV_27948	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	Bairdiella	s_
+ASV_27950	Eukaryota	Chordata	Actinopteri	Clupeiformes	Clupeidae	Ethmidium	Ethmidium maculatum
+ASV_27951	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis ringens
+ASV_27952	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	g_	s_
+ASV_27953	Eukaryota	Chordata	Actinopteri	Myctophiformes	Myctophidae	Lampadena	Lampadena urophaos
+ASV_27955	Eukaryota	Chordata	Actinopteri	unassigned	unassigned	g_	s_
+ASV_27956	Eukaryota	Chordata	Actinopteri	Argentiniformes	Bathylagidae	Leuroglossus	Leuroglossus schmidti
+ASV_27958	Eukaryota	Chordata	Actinopteri	Clupeiformes	Clupeidae	Sardinops	Sardinops melanostictus
+ASV_27959	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_27960	Eukaryota	Chordata	Actinopteri	Scombriformes	Scombridae	Scomber	unassigned
+ASV_27961	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_27962	Eukaryota	Chordata	Actinopteri	Scombriformes	Scombridae	Scomber	unassigned
+ASV_27963	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	g_	s_
+ASV_27965	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	g_	s_
+ASV_27966	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis ringens
+ASV_27969	Eukaryota	Chordata	Actinopteri	Gadiformes	Merlucciidae	Merluccius	Merluccius productus
+ASV_27972	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis ringens
+ASV_27976	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis ringens
+ASV_27978	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	g_	s_
+ASV_27979	Eukaryota	Chordata	Actinopteri	unassigned	unassigned	g_	s_
+ASV_27981	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis ringens
+ASV_27985	Eukaryota	Chordata	Actinopteri	Pleuronectiformes	Paralichthyidae	Citharichthys	Citharichthys sordidus
+ASV_27986	Eukaryota	Chordata	Actinopteri	Argentiniformes	Bathylagidae	Leuroglossus	Leuroglossus schmidti
+ASV_27987	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	g_	s_
+ASV_27989	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	g_	s_
+ASV_27993	Eukaryota	Chordata	Actinopteri	Mugiliformes	Mugilidae	Mugil	Mugil cephalus
+ASV_27996	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	g_	s_
+ASV_27997	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	Equetus	s_
+ASV_28001	Eukaryota	Chordata	Actinopteri	Blenniiformes	Blenniidae	g_	s_
+ASV_28003	Eukaryota	Chordata	Actinopteri	Carangiformes	Carangidae	Seriola	Seriola lalandi
+ASV_28004	Eukaryota	Chordata	Actinopteri	Centrarchiformes	Cheilodactylidae	Cheilodactylus	Cheilodactylus variegatus
+ASV_28005	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis ringens
+ASV_28007	Eukaryota	Chordata	Actinopteri	Clupeiformes	Clupeidae	Ethmidium	Ethmidium maculatum
+ASV_28008	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_28010	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	g_	s_
+ASV_28012	Eukaryota	Chordata	Actinopteri	Atheriniformes	Atherinopsidae	Odontesthes	unassigned
+ASV_28015	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	g_	s_
+ASV_28016	Eukaryota	Chordata	Actinopteri	Argentiniformes	Bathylagidae	Leuroglossus	Leuroglossus schmidti
+ASV_28018	Eukaryota	Chordata	Actinopteri	Pleuronectiformes	Paralichthyidae	Citharichthys	unassigned
+ASV_28022	Eukaryota	Chordata	Actinopteri	Beloniformes	Exocoetidae	unassigned	s_
+ASV_28024	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	g_	s_
+ASV_28025	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	g_	s_
+ASV_28027	Eukaryota	Chordata	Actinopteri	Clupeiformes	Clupeidae	Sardinops	Sardinops melanostictus
+ASV_28028	Eukaryota	Chordata	Aves	Pelecaniformes	Pelecanidae	Pelecanus	Pelecanus occidentalis
+ASV_28029	Eukaryota	Chordata	Actinopteri	unknown	Sciaenidae	g_	s_
+ASV_28032	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	g_	s_
+ASV_28033	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_28050	Eukaryota	Chordata	Actinopteri	Beloniformes	Belonidae	g_	s_
+ASV_28052	Eukaryota	Chordata	Actinopteri	Clupeiformes	Engraulidae	Engraulis	Engraulis mordax
+ASV_28060	Eukaryota	Chordata	Actinopteri	Beloniformes	Belonidae	g_	s_
+ASV_28084	Eukaryota	Chordata	Actinopteri	unknown	Pomacentridae	Chromis	unassigned
+ASV_28097	Eukaryota	Chordata	Aves	Charadriiformes	Laridae	Larosterna	Larosterna inca
+ASV_28116	Eukaryota	Chordata	Aves	Pelecaniformes	Sulidae	Sula	Sula nebouxii
+ASV_28206	Eukaryota	Chordata	Actinopteri	Atheriniformes	Atherinopsidae	g_	s_

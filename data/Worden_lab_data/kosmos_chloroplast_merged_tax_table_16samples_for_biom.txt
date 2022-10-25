@@ -1,0 +1,37 @@
+#OTUID	Kingdom	Supergroup	Phylum	Class	Subclass	Order	Suborder	Family	Genus	Species
+42219cdab667ede06141ed99b77e6e3c	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+d9229fe38c2083c24186be92bbef13ae	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA	Skeletonemataceae		
+6db05a10707818fbe75a590499339995	Eukaryota	Stramenopiles	Ochrophyta				NA			
+de07b97b3c8bed8fd34d50acf341fa65	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+84db7bef4e63768342c4e6d91424b528	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+a713278facfda956576d93f0ebab0918	Eukaryota	Archaeplastida	Chlorophyta	Trebouxiophyceae		Chlorellales	NA	Chlorellaceae		
+2323d65b8fb56eefaf44bb37a8fdd372	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Melosirales	NA	Melosiraceae		
+cfbb54fabdb1c962e69e5e2d8b7ec2c6	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+96a177c7d9fe69540ef28119f340ec99	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+76af76d18ff044c3f5aea9e78a85baf7	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+96595fee71ccd0455b2967949c8016e3	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+36a4c622d3787881baa568a1ba6046b9	Eukaryota	Stramenopiles	Ochrophyta	Raphidophyceae		Chattonellales	NA	Chattonellaceae		
+248d685efcdb0f4adbebed6463e2fd8d	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA			
+3b3e7b6d5d5419d61f279996ec87d13a	Eukaryota	Stramenopiles	Ochrophyta	Phaeophyceae			NA			
+aa362e133f4a3742c7c0b51823dcefff	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA	Mamiellaceae		
+c8beb29f8c766765fc1a8ce124f642af	Eukaryota	Archaeplastida	Chlorophyta	Chlorodendrophyceae		Chlorodendrales	NA	Chlorodendraceae		
+9b913f388f72540499d96686bf75218f	Eukaryota	Excavata	Discoba	Euglenozoa	Euglenophyceae	Eutreptiales	NA	Eutreptiaceae	Eutreptiella	Eutreptiella
+4912ee68947e8529e2eac96d81f4e26a	Unassigned						NA			
+4b45e0fc6276ae0245aea2cf6c2de70e	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA	Chrysochromulinaceae		
+42624d4c60b33699c28a95ca27129319	Eukaryota	Archaeplastida	Chlorophyta	Trebouxiophyceae		Prasiolales	NA	Koliellaceae		
+b312a1d9d769c6da59c68893ee7c4582	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+2cf85d07a8ecd3fb2b87a9f36708260b	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae	Cymbellales	NA	Cymbellaceae		
+f19d778b495d614ed62c00879047c35c	Eukaryota	Archaeplastida					NA			
+c979da06b859784bf58df00a55ccc8fb	Eukaryota	Archaeplastida	Streptophyta	Embryophyceae			NA			
+64eb8580f35a7ef73a87fa5a1a0aa95d	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+e55a78a1c8062a8044c653d07dbd915a	Eukaryota	Archaeplastida	Chlorophyta	Prasinophyceae		Pyramimonadales	NA	Pyramimonadaceae		
+fa633eb2208ad0b9211b90e1da630ec7	Eukaryota	Archaeplastida	Chlorophyta	Ulvophyceae		Oltmannsiellopsidales	NA	Oltmannsiellopsidaceae	Oltmannsiellopsis	Oltmannsiellopsis
+178f2b30b80c8008b3f17bfc73d0810f	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Phaeocystales	NA	Phaeocystaceae		
+836c8649bf9c3e71c1fecea4f98ece34	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Cymatosirales	NA	Cymatosiraceae		
+00cd1bef5a53b8e7548c39a3ddef1846	Eukaryota	Stramenopiles	Ochrophyta	Pelagophyceae			NA			
+8a6c94726c0780da709f413ba6a92c91	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA	Bathycoccaceae		
+e63fe703fb79408e5bc38e35b928ae07	Eukaryota	Archaeplastida	Chlorophyta	Chlorodendrophyceae		Chlorodendrales	NA	Chlorodendraceae	Tetraselmis	Tetraselmis
+653689c0090cd499534548cb2ac92fde	Eukaryota	Archaeplastida	Chlorophyta				NA			
+6ff2b5e928b906c7e6c9160aa8a82c08	Eukaryota	Archaeplastida	Chlorophyta	Prasinophyceae		Pyramimonadales	NA	Pyramimonadaceae	Pyramimonas	Pyramimonas
+a747673f614170a78208246c62a15d2c	Eukaryota						NA			
+5c279554584d314b39b8e0bccf615b79	Eukaryota	Hacrobia	Rappemonad				NA			Rappemonad

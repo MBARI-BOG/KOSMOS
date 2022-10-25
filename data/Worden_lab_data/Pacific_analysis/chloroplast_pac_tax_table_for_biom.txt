@@ -1,0 +1,204 @@
+#OTUID	Kingdom	Supergroup	Phylum	Class	Subclass	Order	Suborder	Family	Genus	Species
+42219cdab667ede06141ed99b77e6e3c	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+d9229fe38c2083c24186be92bbef13ae	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA	Skeletonemataceae		
+6db05a10707818fbe75a590499339995	Eukaryota	Stramenopiles	Ochrophyta				NA			
+de07b97b3c8bed8fd34d50acf341fa65	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+393253aa18abfdac36ef0d53c7222c1b	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+e0d3f83ed24e56018290f2b7943acc9b	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+ac4b602d4fd4d598c0c79053880a6fe7	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA	Skeletonemataceae		
+094d282e5759e5d296f2b9c4fe77500d	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+84db7bef4e63768342c4e6d91424b528	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+a713278facfda956576d93f0ebab0918	Eukaryota	Archaeplastida	Chlorophyta	Trebouxiophyceae		Chlorellales	NA	Chlorellaceae		
+2323d65b8fb56eefaf44bb37a8fdd372	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Melosirales	NA	Melosiraceae		
+ba023c775d2cf34fc8c622062b6178be	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+4a3da0cc978406fc647a28f932c13567	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+cfbb54fabdb1c962e69e5e2d8b7ec2c6	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+96a177c7d9fe69540ef28119f340ec99	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+76af76d18ff044c3f5aea9e78a85baf7	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+9d614c067c441d8a9480a1d7f040072e	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+039b330945c86d35a292bb1a0d029d40	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+2c1145826361b8caaa26aae5369a3bdf	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+0ec73868c65ec2e1a3618c17e138195c	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+1f2b21bc052cb0656da1f3e673c1ebb2	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+96595fee71ccd0455b2967949c8016e3	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+a735069357ce3bff25f964e614dc9f50	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+98a5b6da12dff21114b8c3302d58c9ee	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+b4903dd51eb41689ecf2d44c6df239b2	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+5ab08f77a1e90f4869d69d602521363e	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+3fbc1c2532fb76354cf750ba43944c89	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+36a4c622d3787881baa568a1ba6046b9	Eukaryota	Stramenopiles	Ochrophyta	Raphidophyceae		Chattonellales	NA	Chattonellaceae		
+e7616da48825d69487217c02d56ed064	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+248d685efcdb0f4adbebed6463e2fd8d	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA			
+8b30cf3f5e8c27b4aacc4736f6cd6ed9	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+83c194429e19fe7c040d099dadade7e0	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+c5548ed311eb7b4a4b06e500dafc48ff	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+9230a5d018cf30449d6606d1b25d9b2c	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+f7b901f2d99386e3f057c26c64ddbaf2	Eukaryota	Archaeplastida	Chlorophyta	Trebouxiophyceae		Chlorellales	NA	Chlorellaceae		
+aa362e133f4a3742c7c0b51823dcefff	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA	Mamiellaceae		
+c8beb29f8c766765fc1a8ce124f642af	Eukaryota	Archaeplastida	Chlorophyta	Chlorodendrophyceae		Chlorodendrales	NA	Chlorodendraceae		
+a1cc6dd666afc98d00326d35f43bae73	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+d16938cc809b9186b4b6d32892c4eddd	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+a1a363ebfa5e222880fbbc2877328c93	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+2fc32256e74d5cc16fd440d96a3733d9	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+5207151388e3c1cb2fe7d75d59f26e79	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+9b913f388f72540499d96686bf75218f	Eukaryota	Excavata	Discoba	Euglenozoa	Euglenophyceae	Eutreptiales	NA	Eutreptiaceae	Eutreptiella	Eutreptiella
+4912ee68947e8529e2eac96d81f4e26a	Unassigned						NA			
+35c96737e44f9a025c844504c09521e6	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+315d2dab44d975c2d7adef16cd6226f8	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+bda174380b89c8dafb8a61126ad57210	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+8b1ca5c7eda7f9278a28edd834c461be	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+35c7ac712d7bfb9eded614644fdd5eab	Eukaryota	Stramenopiles	Ochrophyta				NA			
+7ef9ef0f1d7fc89f3fa1d17d92b4e6d8	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+4b45e0fc6276ae0245aea2cf6c2de70e	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA	Chrysochromulinaceae		
+20d8843bf7213e7bf6592cdb191a9e96	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+e6794d71335fe9c08483e2d87506ab80	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+9ca3ba7165b71dfa75647c347b1aa034	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+92c99a76c83d47c4ed1259c807985355	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA	Skeletonemataceae		
+ab985cf0ad0420c1a343fbc97ce8f698	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+b3e163b6fe9838157f405611dc3e693f	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+20d526a736412cffe5fdea0f89b3fbcb	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+1f97c47d5e820df62d738ab6e2bc2790	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+42624d4c60b33699c28a95ca27129319	Eukaryota	Archaeplastida	Chlorophyta	Trebouxiophyceae		Prasiolales	NA	Koliellaceae		
+5ea3446ef0c2b0746d9845a861d8487d	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+b312a1d9d769c6da59c68893ee7c4582	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+a907c242383e2c256496dd4a09417c6e	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA	Mamiellaceae		
+2cf85d07a8ecd3fb2b87a9f36708260b	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae	Cymbellales	NA	Cymbellaceae		
+f19d778b495d614ed62c00879047c35c	Eukaryota	Archaeplastida					NA			
+e6c77b73bb9e88d9d505d71f517486dc	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+9af2e51388a124d362e7cb1c9f80082b	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+c02dd57b6285f6a863ea557a201db5e9	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+044bad6668bf3ca9bd869761852eb7b6	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+81b4121f59c48cb7a4783b721f01920e	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+65cb02d6dfe193018ea4604eb380eaff	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+c979da06b859784bf58df00a55ccc8fb	Eukaryota	Archaeplastida	Streptophyta	Embryophyceae			NA			
+a8d86f936536d5e55ecaec83a1c465f8	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+e91fabdf7e0a93eb957c2c4e9e764ae2	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+1d9216ecc0bd433058261a3b94839d99	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+bd18627a36c643dd24bf4746d4663950	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+a2d4d91180c2d5c66cf5be3a84162b45	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+902b23c26b7ad907add59feda1a30428	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+c42250e8e0c5454779ea2b7a43dc264c	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+61a30a195aa50828309cd6a42dd81d6e	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+2d3a26b959c51d33494ae3006c1890bd	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA			
+6b82949db47d8b448fa5a82d1ac79936	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+fb0e7d7d6eb417d326f5a4f47e284465	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+606fd5f3c90d426dbb74c454442ddd4e	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+b16c047ba04a60bde71f537a09c62d3c	Eukaryota	Stramenopiles	Ochrophyta				NA			
+64eb8580f35a7ef73a87fa5a1a0aa95d	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+6b4775f85836dc47570daebcbd3429b2	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+732c5a5744d4481a5a19b2663cefc6ae	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+baa5448d80db84deef60639a48f2945a	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA	Mamiellaceae		
+e55a78a1c8062a8044c653d07dbd915a	Eukaryota	Archaeplastida	Chlorophyta	Prasinophyceae		Pyramimonadales	NA	Pyramimonadaceae		
+e514e47bcd137145382ab4709d16b7a2	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae	Cymbellales	NA	Cymbellaceae		
+fa633eb2208ad0b9211b90e1da630ec7	Eukaryota	Archaeplastida	Chlorophyta	Ulvophyceae		Oltmannsiellopsidales	NA	Oltmannsiellopsidaceae	Oltmannsiellopsis	Oltmannsiellopsis
+3e50e77a8bb07cac6bf4c6623f5d185e	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+5e23e4e1f8a41d2d7d0d6439cde2a766	Eukaryota	Stramenopiles	Ochrophyta				NA			
+40450b44940c08498a7bf2d3ff47a849	Eukaryota	Archaeplastida	Chlorophyta	Prasinophyceae		Pyramimonadales	NA	Pyramimonadaceae		
+0e2aa104e4ada9abaa8094203d4c9e9c	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+bdc617824c81aad4c3e31b549d222b80	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+b3e3bf49951fd57fef9a0712bdcedb5a	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+2cb58e389011372307a5affb4eb87e3b	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+8727190c50d0303c63de28feafd1ab3e	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+fe54a6b3853a4ba111acf8886bee63ae	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+fa77c54aa003bb04df29a4985077ee61	Unassigned						NA			
+178f2b30b80c8008b3f17bfc73d0810f	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Phaeocystales	NA	Phaeocystaceae		
+6aefa26af43d40a8162db6f7695c1152	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Phaeocystales	NA	Phaeocystaceae		
+219828c904ec5c4c164cb82f0183769d	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+3d2a21690df214f790747c23c7f50a13	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+97e8b13f22527b063865cbdf15a7fa59	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+3e3643b6e0f842f3f69a596a42bd32c2	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+b4ec7581fa901b664e01f6675f340ba2	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+bc1819f4c88904f014d0865c0a09c8ec	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+af5fe6cf3758537a4a88e804eed97cbf	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+5ac9e1e1f137a918ebee250fbe0d856a	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+836c8649bf9c3e71c1fecea4f98ece34	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Cymatosirales	NA	Cymatosiraceae		
+9ce5610a06f1105885cf685ed73f5a73	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Phaeocystales	NA	Phaeocystaceae		
+22f0e8a61441d36d0727b04f15253ab0	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+8751e2920100fe9f560be4345ab4c8f8	Eukaryota	Archaeplastida	Streptophyta	Embryophyceae			NA			
+9eb750f3e4804bdff6cc665113bdd039	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+fc253b74f104e63cb6a394122ab281a4	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+a3e34c2f2e7f82059db4c692a3a00005	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+07be4271cb7f8a8b37e63efe6b39d245	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+4244586faf3a126030cffb1edd2f4596	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+c250a4a4c9c26bc3252480bbfa1dc2e9	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+8a6c94726c0780da709f413ba6a92c91	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA	Bathycoccaceae		
+3e9ecb1735f5d68b8fe25e8346e8f6c6	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+c01e132af0927fa3af560ab87826436e	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+e63fe703fb79408e5bc38e35b928ae07	Eukaryota	Archaeplastida	Chlorophyta	Chlorodendrophyceae		Chlorodendrales	NA	Chlorodendraceae	Tetraselmis	Tetraselmis
+c1c7f98b129e96e27024c41cb6677824	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae	Cymbellales	NA	Cymbellaceae		
+05295a623bd93c89172bac548f81dd0d	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+9a006ffb0fd2db6f518185d6ca770e96	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+b93769465a31e0b07172d735f3cfb75a	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+8805982a8fd5b49a9374b233259d6614	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+e30e925bba5c1213fd642219f7195146	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+fef42a3804ad156ee914c38473802bf2	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+9f96d461e5016b352947477c1e4b5fdb	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+a9a5714516b1b4a7b695b352c0f8d005	Eukaryota	Archaeplastida	Chlorophyta	Prasinophyceae		Pyramimonadales	NA	Pyramimonadaceae		
+25fc71725ccdefad9eb31a493c41ad7f	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Cymatosirales	NA	Cymatosiraceae		
+d4cde7c8aab977d63ff1f4896b8ec250	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+0421d6265cef7d012369a34b08c521d5	Eukaryota	Archaeplastida	Chlorophyta	Prasinophyceae		Pyramimonadales	NA	Pyramimonadaceae		
+e626ce83a4ef6211f7c3a38a32174527	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+af23f68e2a4f7c7125e08f4807b87bb4	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+45857c728fe38e208e256fecaab106c0	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+7a4211e72b091cfc4aed3cfcabd73ea8	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+e9a7e85b7b2017576c46d9550e3aeb93	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+af3512e86eeeef7c71a0d0265b5cfb14	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+7feecdf794cf86899fa740ee7a86d0a0	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+de05c74f1a4741be8ed2874fe5013187	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA	Bathycoccaceae		
+ecc9ab50c1e53ad9c8b3cf46c211cde8	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+8bd5f3b13310e519562ac945e593d046	Eukaryota	Archaeplastida					NA			
+653689c0090cd499534548cb2ac92fde	Eukaryota	Archaeplastida	Chlorophyta				NA			
+6f73a0104c73f914320af81ee7f4cfe5	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+ba1e4c3a8b2a4f6055a3ef8afbe6eb25	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+ad6b9c1c869d82b088e4e389d07cc023	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+78d07a90a11a39d424eb006cc69f6ed3	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+7e10d2767fcac1cebd50e4c0afb42a61	Unassigned						NA			
+88f6e433e66125716d2f27021bbdfe6a	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+2452d8574651d1741f591cce63d64c43	Eukaryota	Archaeplastida	Chlorophyta	Chlorodendrophyceae		Chlorodendrales	NA	Chlorodendraceae	Tetraselmis	Tetraselmis
+10158f75e32c860722f29ac536c5d579	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+58cfa22827f8e57bc959f64621e8cd2f	Unassigned						NA			
+23a6dc97fccc14c5f2c63e2d7e5842b7	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+1a3084b5ea6cbf31ab824f7a7f918b48	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+d1017a9bacb76c79a76a4daab04e133d	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA			
+52cf4f622c2381df5acde77f8b06f47a	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+ab80aa6a6d79a3d92be11de5131588b3	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA	Bathycoccaceae		
+8ba693fe4475657cb8bb3524835d1062	Eukaryota	Archaeplastida	Chlorophyta	Prasinophyceae		Pyramimonadales	NA	Pyramimonadaceae		
+4dd4082b489cc95e0d20e29675e8509a	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+b3f47ada15473d8e649aa3e37668e59d	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Cymatosirales	NA	Cymatosiraceae		
+c2d4fce4edcc73b2b54e1561be2dfafb	Eukaryota	Stramenopiles	Ochrophyta	Pelagophyceae			NA			
+d48a8bccffbeebfc20568125d41d0294	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+bb52a5a740007cbad5aac0a1fe6cd565	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+790bbecc418867048e6ff094f0aad1d5	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+91d8042749f85403e991f35f549ea4fe	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+1e337073e903d3c72d8a73426c9686dd	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+04a54c961bb235e7ec1b8ce88453832e	Eukaryota	Stramenopiles	Ochrophyta	Dictyochophyceae			NA			
+6ff2b5e928b906c7e6c9160aa8a82c08	Eukaryota	Archaeplastida	Chlorophyta	Prasinophyceae		Pyramimonadales	NA	Pyramimonadaceae	Pyramimonas	Pyramimonas
+dbe31db4a6433ffb7bacbcb0d8408d4e	Eukaryota	Archaeplastida	Chlorophyta	Prasinophyceae		Pyramimonadales	NA	Pyramimonadaceae		
+a747673f614170a78208246c62a15d2c	Eukaryota						NA			
+62f27fc97ea9fdd47efa64b9e37d2b60	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA	Chrysochromulinaceae		
+11f834db425bc90a16300e2f079b15a7	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+9ef1663ba6e8ac161cda68c2c22e7e57	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Melosirales	NA	Melosiraceae		
+a5d825eb3dcbf92d97714ef8429083a1	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Bacillariophyceae		NA			
+c4cfb0b7f611bdccd09de59ba9a695b0	Eukaryota	Archaeplastida	Chlorophyta	Ulvophyceae		Oltmannsiellopsidales	NA	Oltmannsiellopsidaceae	Oltmannsiellopsis	Oltmannsiellopsis
+c173397bbd6d627df9baa4418aad6e34	Eukaryota	Archaeplastida	Chlorophyta	Mamiellophyceae		Mamiellales	NA	Bathycoccaceae		
+57329113e6a30613d269cbc1936b3675	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+97b57286420c4afbbdc0cbc966f07e14	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+f92fc2d7704f12d8becbf2d4899f6f06	Eukaryota	Hacrobia	Cryptophyta	Cryptophyceae		Pyrenomonadales	NA			
+50248b2209dfdaa6f034669c3e6867b2	Eukaryota	Stramenopiles	Ochrophyta				NA			
+e753315b7be9afa0dc39c36815ed1b50	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae		Prymnesiales	NA	Chrysochromulinaceae		
+32f1b340dd18f56c69f3ac4be3b19a9c	Eukaryota	Stramenopiles	Ochrophyta				NA			
+1619d7c75ef240aef42ab53522a3a103	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta			NA			
+e3a27e62c9f613652b033963b6dcf408	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+581b5de83d8bd9cd597b40c6f89c9c83	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Thalassiosirales	NA			
+5c279554584d314b39b8e0bccf615b79	Eukaryota	Hacrobia	Rappemonad				NA			Rappemonad
+8ed96db8bdc7ac16cdf12d6c14aa0f7a	Eukaryota	Hacrobia	Haptophyta	Prymnesiophyceae			NA			
+6ddcd71ddc5a0880102bba6fe6bbecb8	Eukaryota	Stramenopiles	Ochrophyta				NA			
+885b27839b62b00f31fd09e99079972d	Unassigned						NA			
+52e76e2733f7b696202b560aa865d245	Eukaryota	Stramenopiles	Ochrophyta				NA			
+9a34ce0491c7186221662c1ddff1e15e	Eukaryota	Archaeplastida					NA			
+0788a03b3206a719ffc491628300dada	Eukaryota	Archaeplastida	Chlorophyta	Ulvophyceae		Oltmannsiellopsidales	NA	Oltmannsiellopsidaceae	Oltmannsiellopsis	Oltmannsiellopsis
+d675927595c6ffdd33c0c40809a73593	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae		NA			
+594d2769cca5613a1d4ddb6071a8ad94	Eukaryota	Stramenopiles	Ochrophyta				NA			
+72bafe306d92f2bbcd0887700eeb9053	Unassigned						NA			
+21973444f97e6c36be186d3edf4e4f1e	Eukaryota	Stramenopiles	Ochrophyta	Bacillariophyta	Coscinodiscophyceae	Chaetocerotales	NA			
+9c51c25899240d00ac52cead2aefe367	Eukaryota	Stramenopiles	Ochrophyta				NA			

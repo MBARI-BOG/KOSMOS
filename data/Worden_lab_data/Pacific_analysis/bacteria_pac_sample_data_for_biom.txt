@@ -1,0 +1,9 @@
+#SampleID	sample	DNA_concentration	SAMPLING_project	SAMPLING_day	SAMPLING_date_time	SAMPLING_platform	SAMPLING_cruise	SAMPLING_station_number	SAMPLING_station	SAMPLING_dec_lat	SAMPLING_dec_long	depth	temp	salinity	chlorophyll	pressure_dbar	nitrate	diss_oxygen	samp_vol_we_dna_ext	POC	DNA_conc_normalized	day_of_experiment	group
+KOSMOS.D1.MPBS	P1	78.2	KOSMOS	 1	26-Feb	Mesocosm	KOSMOS	MP	Pacific	na	na	5	na	na	na	na	na	na	250ml	60.07	15.64	1	P_all_M1_preOMZ
+KOSMOS.D15.MPAS	P15	50.8	KOSMOS	15	12-Mar	Mesocosm	KOSMOS	MP	Pacific	na	na	0	na	na	na	na	na	na	250ml	58.03	20.32	15	P_all_M1_preOMZ
+KOSMOS.D24.MPAS	P24	36.8	KOSMOS	24	21-Mar	Mesocosm	KOSMOS	MP	Pacific	na	na	0	na	na	na	na	na	na	250ml	56.89	14.72	24	P_all_M1_preOMZ
+KOSMOS.D32.MPAS	P32	24.2	KOSMOS	32	29-Mar	Mesocosm	KOSMOS	MP	Pacific	na	na	0	na	na	na	na	na	na	250ml	98.60	24.64	32	P_all_M1_preOMZ
+KOSMOS.D36.MPAS	P36	40.7	KOSMOS	36	2-Apr	Mesocosm	KOSMOS	MP	Pacific	na	na	0	na	na	na	na	na	na	250ml	52.12	16.28	36	P_all_M1_preOMZ
+KOSMOS.D42.MPAS	P42	27.7	KOSMOS	42	8-Apr	Mesocosm	KOSMOS	MP	Pacific	na	na	0	na	na	na	na	na	na	250ml	37.41	11.08	42	P_all_M1_preOMZ
+KOSMOS.D48.MPAS	P48	29.6	KOSMOS	48	14-Apr	Mesocosm	KOSMOS	MP	Pacific	na	na	0	na	na	na	na	na	na	250ml	48.42	11.84	48	P_all_M1_preOMZ
+KOSMOS.D8.MPAS	P8	51.0	KOSMOS	 8	5-Mar	Mesocosm	KOSMOS	MP	Pacific	na	na	10	na	na	na	na	na	na	250ml	34.09	20.40	8	P_all_M1_preOMZ

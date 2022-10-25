@@ -7,7 +7,7 @@ output:
 ---
 
 ### Description
-This R markdown file contains all of the analyses for the KOSMOS paper. Please note - some data files (e.g. shapefiles) are too large to upload to GitHub and therefore some code chunks will not work. If you require these datasets, please contact me at mmin@uw.edu.
+This R markdown file contains all of the analyses for the KOSMOS paper. Please note - some data files (i.e., the sequencing data) are too large to upload to GitHub and therefore some code chunks will not work. If you require these datasets, please contact me at mmin@uw.edu.
 
 ### Load libraries
 
@@ -54,7 +54,7 @@ library(vegan)
 library(superheat)
 library(ggrepel)
 library(ggthemes)
-library(seqRFLP)
+library(seqRFLP) # note this package has to be installed from an old version because it was removed from cran: https://cran.r-project.org/src/contrib/Archive/seqRFLP/
 library(png)
 library(grid)
 library(lubridate)
@@ -72,7 +72,8 @@ world_df <- map_data("world")
 peru_df <- world_df[world_df$region == "Peru",]
 
 # Load data
-peru_spdf <- readOGR(dsn = "/Users/mmin/Documents/KOSMOS_data_local/map_files/PER_adm/PER_adm0.shp")
+# peru_spdf <- readOGR(dsn = "/Users/mmin/Documents/KOSMOS_data_local/map_files/PER_adm/PER_adm0.shp")
+peru_spdf <- readOGR(dsn = here::here("data", "map_files", "PER_adm", "PER_adm0.shp"))
 
 # Convert to df(ish)
 peru_spdf_fort <- tidy(peru_spdf)
@@ -134,17 +135,17 @@ peru_map <- ggplot(data = world_df, aes(x = long, y = lat, group = group))+
 
 peru_map
 
-ggsave("kosmos_map.pdf", width = 5, height = 8,path = "/Users/mmin/Documents/KOSMOS_paper_figures")
+ggsave("kosmos_map.pdf", width = 5, height = 8,path = here::here("figures"))
 ```
 
 # Biogeochemical data (Figure 2, first column)
 
 #### Import data
 ```{r}
-M_nutrients <- read.csv(file = "/Users/mmin/Documents/KOSMOS_data_local/kosmos_physical_data/Figure_4_Francisco.csv")
-M_chla_long <- read.csv(file = "/Users/mmin/Documents/KOSMOS_data_local/kosmos_physical_data/chla_Francisco.csv")
-kosmos_T <- read.csv(file = "/Users/mmin/Documents/KOSMOS_data_local/kosmos_physical_data/kosmos_temperature_all.csv")
-kosmos_S <- read.csv(file = "/Users/mmin/Documents/KOSMOS_data_local/kosmos_physical_data/kosmos_salinity_all.csv")
+M_nutrients <- read.csv(file = here::here("data", "kosmos_physical_data", "Figure_4_Francisco.csv"))
+M_chla_long <- read.csv(file = here::here("data", "kosmos_physical_data", "chla_Francisco.csv"))
+kosmos_T <- read.csv(file = here::here("data", "kosmos_physical_data", "kosmos_temperature_all.csv"))
+kosmos_S <- read.csv(file = here::here("data", "kosmos_physical_data", "kosmos_salinity_all.csv"))
 
 
 # Convert all five datasets into long form for plots
@@ -165,12 +166,12 @@ S_long %>% dplyr::rename(.,sampling.day = day) %>% data.frame(.,parameter) -> S_
 
 # Concat the different variables, export as one dataframe for inclusion with publication
 combined_physicochemical_data <- bind_rows(bind_rows(bind_rows(bind_rows(T_long,S_long),NOx_long),SiO4_long),chla_long)
-write.csv(combined_physicochemical_data, "/Users/mmin/Documents/KOSMOS_data_local/kosmos_physical_data/Figure_2_data.csv")
+write.csv(combined_physicochemical_data, here::here("data", "kosmos_physical_data", "Figure_2_data.csv"))
 ```
 
 ### Prep dataframes using the combined dataset
 ```{r}
-combined_physicochemical_data <- read.csv("/Users/mmin/Documents/KOSMOS_data_local/kosmos_physical_data/Figure_2_data.csv",row.names = 1)
+combined_physicochemical_data <- read.csv(here::here("data", "kosmos_physical_data", "Figure_2_data.csv"),row.names = 1)
 combined_physicochemical_data$mesocosm <- as.character(combined_physicochemical_data$mesocosm)
 combined_physicochemical_data$parameter <- as.character(combined_physicochemical_data$parameter)
 T_long <- subset(combined_physicochemical_data,parameter == "temp")
@@ -254,7 +255,7 @@ plot <- ggplot(data = eval(parse(text = paste0(variable_names[i],"_df"))), aes(x
                                    ifelse(panel[i] == "(e)",expression(bold(~"chl-a" ~ (mu*"g L" ^-1) ~ "\n")),
               "oops you messed up"))))))
 
-ggsave(paste0("/Users/mmin/Documents/KOSMOS_paper_figures/biogeochemical_figure/v4_FINAL/",variable_names[i],"_gg.png"),plot,width = 7, height = ifelse(panel[i] %in% c("(a)","(e)"),3.5,3))
+ggsave(here::here("figures", "biogeochemical_figure", paste0(variable_names[i],"_gg.png")) ,plot,width = 7, height = ifelse(panel[i] %in% c("(a)","(e)"),3.5,3))
 
 # show plot
 plot
@@ -287,7 +288,7 @@ legend_gg <- ggplot(data = T_long, aes(x = Day, y = value, color = variable))+
 
 legend_gg
 
-ggsave("legend_gg.png", width = 7, height = 1,path = "/Users/mmin/Documents/KOSMOS_paper_figures/biogeochemical_figure/v4_FINAL")
+ggsave("legend_gg.png", width = 7, height = 1,path = here::here("figures"))
 
 # Re-make, but with OMZ addition and NaCl brine additions in legend
 
@@ -319,14 +320,15 @@ legend_gg <- ggplot(data = T_long, aes(x = Day, y = value, color = variable))+
   
 legend_gg
 
-ggsave("legend_final.png", width = 11, height = 1,path = "/Users/mmin/Documents/KOSMOS_paper_figures/biogeochemical_figure/v4_FINAL")
+ggsave("legend_final.png", width = 11, height = 1,path = here::here("figures", "biogeochemical_figure"))
 ```
 
 # Flow data (Figure 2, second column)
 
 #### Import data
 ```{r}
-FCM_df <- read.csv("/Users/mmin/Documents/KOSMOS_data_local/Worden_lab_data/FCM/KOSMOS2017_FCM_data_final_version_MM_edits.csv")
+# FCM_df <- read.csv("/Users/mmin/Documents/KOSMOS_data_local/Worden_lab_data/FCM/KOSMOS2017_FCM_data_final_version_MM_edits.csv")
+FCM_df <- read.csv(here::here("data", "Worden_lab_data", "FCM", "KOSMOS2017_FCM_data_final_version_MM_edits.csv"))
 # Convert to long format (to achieve consistency with biogeochemical data format)
 # Gather the five columns that we will plot
 gathercols <- c("Synechococcus", "total_Eukaryotes", "cryptophytes", "heterotrophic.bacteria", "small_bacterial_population")
@@ -432,7 +434,7 @@ for (i in seq(1:length(variable_names))){
                                      ifelse(panel[i] == "(j)",expression(bold(~"Small Bacteria")),
                                             "oops you messed up"))))))
   
-  ggsave(paste0("/Users/mmin/Documents/KOSMOS_paper_figures/biogeochemical_figure/v4_FINAL/",variable_names[i],"_gg.png"),plot,width = 7, height = ifelse(panel[i] %in% c("(f)","(j)"),3.5,3))
+  ggsave(here::here("figures", "biogeochemical_figure", paste0(variable_names[i],"_gg.png")),plot,width = 7, height = ifelse(panel[i] %in% c("(f)","(j)"),3.5,3))
 }
 
 # Make a "cells/ml" label
@@ -441,7 +443,7 @@ cells_ml_legend_gg <- ggplot(data = syn_df, aes(x = sampling.day, y = M1))+
          ylab(expression(bold(~"Cells ml" ^-1 ~ ("x 10"^4) ~ "\n")))+
   theme(axis.title.y = element_text(size = 30))
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/biogeochemical_figure/v4_FINAL/cells_ml_legend.png", cells_ml_legend_gg,width = 7,height = 7)
+ggsave(here::here("figures", "biogeochemical_figure", "cells_ml_legend.png"), cells_ml_legend_gg,width = 7,height = 7)
 ```
 
 ## Make the legend
@@ -468,7 +470,7 @@ legend_gg <- ggplot(data = T_long, aes(x = Day, y = value, color = variable))+
 
 legend_gg
 
-ggsave("legend_gg.png", width = 7, height = 1,path = "/Users/mmin/Documents/KOSMOS_paper_figures")
+ggsave("legend_gg.png", width = 7, height = 1,path = here::here("figures", "biogeochemical_figure"))
 ```
 
 
@@ -480,7 +482,7 @@ We will be reading in the master datasets from MBON and subsetting out only the 
 
 ### Read in metadata, make edits
 ```{r}
-metadata <- read.csv(file = "/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/COI/for_MBON/decontaminated/072720/COI_master_metadata.csv")
+metadata <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/COI/for_MBON/decontaminated/072720/COI_master_metadata.csv")
 metadata$sample_name <- as.character(metadata$sample_name)
 
 ## Depth
@@ -636,7 +638,7 @@ metadata_updated <- column_to_rownames(metadata_updated,"sample_name")
 
 ### Fix asv table so that there aren't any leading Xs in the column names
 ```{r}
-asv_table <- read.csv(file = "/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/COI/for_MBON/decontaminated/072720/COI_master_ASV_table.csv",row.names = 1, check.names = FALSE)
+asv_table <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/COI/for_MBON/decontaminated/072720/COI_master_ASV_table.csv",row.names = 1, check.names = FALSE)
 destroyX = function(es) {
   f = es
   for (col in c(1:ncol(f))){ #for each column in dataframe
@@ -654,7 +656,7 @@ asv_table <- destroyX(asv_table)
 ```{r}
 asv_table <- otu_table(asv_table,taxa_are_rows = TRUE)
 sample_data <- sample_data(metadata_updated)
-tax_table <- tax_table(as.matrix(read.csv(file = "/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/COI/for_MBON/decontaminated/072720/COI_master_tax_table.csv",row.names = 1)))
+tax_table <- tax_table(as.matrix(read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/COI/for_MBON/decontaminated/072720/COI_master_tax_table.csv",row.names = 1)))
 master_phyloseq_COI <- merge_phyloseq(asv_table,sample_data,tax_table)
 ```
 
@@ -731,7 +733,7 @@ kosmos_COI_phyloseq <- prune_samples(sample_data(master_phyloseq_COI)$SAMPLING_p
 kosmos_COI_phyloseq <- prune_taxa(taxa_sums(kosmos_COI_phyloseq)>0,kosmos_COI_phyloseq)
 
 # Export metadata to share with John Zicker
-write.csv(as.matrix(sample_data(kosmos_COI_phyloseq)), "/Users/mmin/Documents/KOSMOS_data_local/kosmos_metadata_082720.csv")
+# write.csv(as.matrix(sample_data(kosmos_COI_phyloseq)), "/Users/mmin/Documents/KOSMOS_data_local/kosmos_metadata_082720.csv")
 
 kosmos_COI_16_phyloseq <- prune_samples(sample_data(kosmos_COI_phyloseq)$SAMPLING_station_number %in% c("M1","MP"), kosmos_COI_phyloseq)
 kosmos_COI_16_phyloseq <- prune_taxa(taxa_sums(kosmos_COI_16_phyloseq)>0,kosmos_COI_16_phyloseq)
@@ -749,7 +751,7 @@ kosmos_COI <- left_join(kosmos_COI_asv_table, kosmos_COI_tax_table, by = "ASV")
 
 ### Read in metadata, make edits
 ```{r}
-metadata <- read.csv(file = "/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/18S/for_MBON/decontaminated/072720/18S_master_metadata.csv")
+metadata <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/18S/for_MBON/decontaminated/072720/18S_master_metadata.csv")
 metadata$sample_name <- as.character(metadata$sample_name)
 
 ## Depth
@@ -906,7 +908,7 @@ metadata_updated <- column_to_rownames(metadata_updated,"sample_name")
 
 ### Fix asv table so that there aren't any leading Xs in the column names
 ```{r}
-asv_table <- read.csv(file = "/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/18S/for_MBON/decontaminated/072720/18S_master_ASV_table.csv",row.names = 1, check.names = FALSE)
+asv_table <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/18S/for_MBON/decontaminated/072720/18S_master_ASV_table.csv",row.names = 1, check.names = FALSE)
 destroyX = function(es) {
   f = es
   for (col in c(1:ncol(f))){ #for each column in dataframe
@@ -921,7 +923,7 @@ asv_table <- destroyX(asv_table)
 
 ### Make edits to tax table
 ```{r}
-tax_table_df <- read.csv(file = "/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/18S/for_MBON/decontaminated/072720/18S_master_tax_table.csv")
+tax_table_df <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/18S/for_MBON/decontaminated/072720/18S_master_tax_table.csv")
 tax_table_df$Kingdom <- as.character(tax_table_df$Kingdom)
 tax_table_df$Phylum <- as.character(tax_table_df$Phylum)
 tax_table_df$Class <- as.character(tax_table_df$Class)
@@ -1024,7 +1026,7 @@ kosmos_18S <- left_join(kosmos_18S_asv_table, kosmos_18S_tax_table, by = "ASV")
 
 ### Read in metadata, make edits (TD + Classic)
 ```{r}
-metadata <- read.csv(file = "/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/12S/for_MBON/decontaminated/092120/12S_master_metadata.csv")
+metadata <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/12S/for_MBON/decontaminated/092120/12S_master_metadata.csv")
 metadata$sample_name <- as.character(metadata$sample_name)
 
 metadata <- subset(metadata, sample_type %in% c("environmental"))
@@ -1128,7 +1130,7 @@ metadata_updated %>% mutate(.,year_updated = year(date_time_updated)) -> metadat
 metadata_updated <- metadata_updated[!(is.na(metadata_updated$sample_name)),]
 
 # Rearrange so that the touchdown replicates are first, and then drop the classic replicates
-metadata_updated %>% arrange(.,-PCR_settings) %>% distinct(.,original_name,.keep_all = TRUE) -> metadata_updated
+metadata_updated %>% dplyr::arrange(.,desc(PCR_settings)) %>% distinct(.,original_name,.keep_all = TRUE) -> metadata_updated
 
 
 # Change sample_name to row names
@@ -1139,7 +1141,7 @@ metadata_updated <- column_to_rownames(metadata_updated,"sample_name")
 
 ### Fix asv table so that there aren't any leading Xs in the column names (TD only)
 ```{r}
-asv_table <- read.csv(file = "/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/12S/for_MBON/decontaminated/092120/12S_master_ASV_table.csv",row.names = 1, check.names = FALSE)
+asv_table <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/12S/for_MBON/decontaminated/092120/12S_master_ASV_table.csv",row.names = 1, check.names = FALSE)
 destroyX = function(es) {
   f = es
   for (col in c(1:ncol(f))){ #for each column in dataframe
@@ -1158,7 +1160,7 @@ asv_table <- otu_table(asv_table,taxa_are_rows = TRUE)
 # rownames(metadata_updated) <- NULL
 # metadata_updated <- column_to_rownames(metadata_updated,"sample_name")
 sample_data <- sample_data(metadata_updated)
-tax_table <- tax_table(as.matrix(read.csv(file = "/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/12S/for_MBON/decontaminated/092120/12S_master_tax_table.csv",row.names = 1)))
+tax_table <- tax_table(as.matrix(read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/12S/for_MBON/decontaminated/092120/12S_master_tax_table.csv",row.names = 1)))
 master_phyloseq_allplates <- merge_phyloseq(asv_table,sample_data,tax_table)
 ```
 
@@ -1256,11 +1258,11 @@ kosmos_12S <- left_join(kosmos_12S_asv_table, kosmos_12S_tax_table, by = "ASV")
 
 ### Load in phyloseq object - chloroplasts
 ```{r}
-chloroplast_asv <- read.csv("/Users/mmin/Documents/KOSMOS_data_local/Worden_lab_data/kosmos_chloroplast_asv_table.csv",row.names = 1)
+chloroplast_asv <- read.csv(here::here("data", "Worden_lab_data", "kosmos_chloroplast_asv_table.csv"),row.names = 1)
 rownames(chloroplast_asv) <- NULL
 chloroplast_asv %>% column_to_rownames(.,"asv") -> chloroplast_asv
-kosmos_16S_metadata <- read.csv("/Users/mmin/Documents/KOSMOS_data_local/Worden_lab_data/KOSMOS_sample_data_16S.csv",row.names = 1)
-chloroplast_tax_table <- read.csv("/Users/mmin/Documents/KOSMOS_data_local/Worden_lab_data/kosmos_chloroplast_tax_table_noX.csv", row.names = 1)
+kosmos_16S_metadata <- read.csv(here::here("data", "Worden_lab_data", "KOSMOS_sample_data_16S.csv"),row.names = 1)
+chloroplast_tax_table <- read.csv(here::here("data", "Worden_lab_data", "kosmos_chloroplast_tax_table_noX.csv"), row.names = 1)
 rownames(chloroplast_tax_table) <- NULL
 chloroplast_tax_table %>% column_to_rownames(.,"asv") -> chloroplast_tax_table
 chloroplast_phyloseq <- merge_phyloseq(otu_table(chloroplast_asv,taxa_are_rows = TRUE),tax_table(as.matrix(chloroplast_tax_table)),sample_data(kosmos_16S_metadata))
@@ -1276,7 +1278,7 @@ chloroplast_16_phyloseq <- prune_taxa(taxa_sums(chloroplast_16_phyloseq)>0,chlor
 
 ### Change bacterial taxonomy, so that entries like "uncultured" and "unidentified" aren't counted as taxonomy.
 ```{r}
-bacteria_tax_table <- read.csv("/Users/mmin/Documents/KOSMOS_data_local/Worden_lab_data/kosmos_bacteria_tax_table.csv", row.names = 1)
+bacteria_tax_table <- read.csv(here::here("data", "Worden_lab_data", "kosmos_bacteria_tax_table.csv"), row.names = 1)
 
 bacteria_tax_table$Kingdom <- as.character(bacteria_tax_table$Kingdom)
 bacteria_tax_table$Phylum <- as.character(bacteria_tax_table$Phylum)
@@ -1303,9 +1305,9 @@ for (i in seq(1,length(unwanted_taxonomy))){
 
 ### Load in phyloseq object - bacteria
 ```{r}
-bacteria_asv <- read.csv("/Users/mmin/Documents/KOSMOS_data_local/Worden_lab_data/kosmos_bacteria_asv_table.csv",row.names = 1)
+bacteria_asv <- read.csv(here::here("data", "Worden_lab_data", "kosmos_bacteria_asv_table.csv"),row.names = 1)
 # bacteria_asv %>% column_to_rownames(.,"asv") -> bacteria_asv
-kosmos_16S_metadata <- read.csv("/Users/mmin/Documents/KOSMOS_data_local/Worden_lab_data/KOSMOS_sample_data_16S.csv",row.names = 1)
+kosmos_16S_metadata <- read.csv(here::here("data", "Worden_lab_data", "KOSMOS_sample_data_16S.csv"),row.names = 1)
 # bacteria_tax_table <- read.csv("/Users/mmin/Documents/KOSMOS_data_local/Worden_lab_data/kosmos_bacteria_tax_table.csv", row.names = 1)
 bacteria_phyloseq <- merge_phyloseq(otu_table(bacteria_asv,taxa_are_rows = TRUE),tax_table(as.matrix(bacteria_tax_table)),sample_data(kosmos_16S_metadata))
 
@@ -1861,7 +1863,7 @@ kosmos_COI_field_blanks_v_envt <- kosmos_COI_field_blanks_v_envt[order(-kosmos_C
 
 kosmos_COI_field_blanks_v_envt <- left_join(kosmos_COI_field_blanks_v_envt, kosmos_COI_field_blanks_tax_table, by = "ASV")
 
-write.csv(kosmos_COI_field_blanks_v_envt, "/Users/mmin/Documents/KOSMOS_paper_figures/field_blanks/COI_field_blank_composition.csv")
+write.csv(kosmos_COI_field_blanks_v_envt, here::here("figures", "field_blanks", "COI_field_blank_composition.csv"))
 ```
 
 ## 18S: Create tables that document ASVs found in field blanks and their abundance in field blanks vs. in the environmental samples
@@ -1888,7 +1890,7 @@ kosmos_18S_field_blanks_v_envt <- kosmos_18S_field_blanks_v_envt[order(-kosmos_1
 
 kosmos_18S_field_blanks_v_envt <- left_join(kosmos_18S_field_blanks_v_envt, kosmos_18S_field_blanks_tax_table, by = "ASV")
 
-write.csv(kosmos_18S_field_blanks_v_envt, "/Users/mmin/Documents/KOSMOS_paper_figures/field_blanks/18S_field_blank_composition.csv")
+write.csv(kosmos_18S_field_blanks_v_envt, here::here("figures", "field_blanks", "18S_field_blank_composition.csv"))
 ```
 
 
@@ -1916,7 +1918,7 @@ kosmos_12S_field_blanks_v_envt <- kosmos_12S_field_blanks_v_envt[order(-kosmos_1
 
 kosmos_12S_field_blanks_v_envt <- left_join(kosmos_12S_field_blanks_v_envt, kosmos_12S_field_blanks_tax_table, by = "ASV")
 
-write.csv(kosmos_12S_field_blanks_v_envt, "/Users/mmin/Documents/KOSMOS_paper_figures/field_blanks/12S_field_blank_composition.csv")
+write.csv(kosmos_12S_field_blanks_v_envt, here::here("figures", "field_blanks", "12S_field_blank_composition.csv"))
 ```
 
 ## Bacteria: Create tables that document ASVs found in field blanks and their abundance in field blanks vs. in the environmental samples
@@ -1943,7 +1945,7 @@ kosmos_bacteria_field_blanks_v_envt <- kosmos_bacteria_field_blanks_v_envt[order
 
 kosmos_bacteria_field_blanks_v_envt <- left_join(kosmos_bacteria_field_blanks_v_envt, kosmos_bacteria_field_blanks_tax_table, by = "ASV")
 
-write.csv(kosmos_bacteria_field_blanks_v_envt, "/Users/mmin/Documents/KOSMOS_paper_figures/field_blanks/bacteria_field_blank_composition.csv")
+write.csv(kosmos_bacteria_field_blanks_v_envt, here::here("figures", "field_blanks", "bacteria_field_blank_composition.csv"))
 ```
 
 ### Chloroplasts: Create tables that document ASVs found in field blanks and their abundance in field blanks vs. in the environmental samples
@@ -1970,7 +1972,7 @@ kosmos_chloroplast_field_blanks_v_envt <- kosmos_chloroplast_field_blanks_v_envt
 
 kosmos_chloroplast_field_blanks_v_envt <- left_join(kosmos_chloroplast_field_blanks_v_envt, kosmos_chloroplast_field_blanks_tax_table, by = "ASV")
 
-write.csv(kosmos_chloroplast_field_blanks_v_envt, "/Users/mmin/Documents/KOSMOS_paper_figures/field_blanks/chloroplast_field_blank_composition.csv")
+write.csv(kosmos_chloroplast_field_blanks_v_envt, here::here("figures", "field_blanks", "chloroplast_field_blank_composition.csv"))
 ```
 
 # PCA (Figure 3)
@@ -2001,7 +2003,7 @@ legend_gg <- ggplot(data = legend_df, aes(x = position_x, y = position_y, color 
 
 legend_gg
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/PCA_legend_v2.png",legend_gg, width = 7, height = 2)
+ggsave(here::here("figures", "PCA_figure", "PCA_legend_v2.png"),legend_gg, width = 7, height = 2)
 
 ```
 
@@ -2011,10 +2013,10 @@ ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/PCA_legend_v2.png"
 ```{r}
 kosmos_COI_16_asv_table <- as.data.frame(otu_table(kosmos_COI_16_phyloseq))
 kosmos_COI_16_asv_table <- rownames_to_column(kosmos_COI_16_asv_table,"#OTUID")
-write.table(kosmos_COI_16_asv_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/COI/kosmos_COI_16_asv_table_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_COI_16_asv_table,here::here("local_deicode_runs", "COI", "kosmos_COI_16_asv_table_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 kosmos_COI_16_tax_table <- as.data.frame(as(tax_table(kosmos_COI_16_phyloseq),"matrix"))
 kosmos_COI_16_tax_table <- rownames_to_column(kosmos_COI_16_tax_table,"#OTUID")
-write.table(kosmos_COI_16_tax_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/COI/kosmos_COI_16_tax_table_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_COI_16_tax_table,here::here("local_deicode_runs", "COI", "kosmos_COI_16_tax_table_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 kosmos_COI_16samples_metadata <- as.data.frame(as.matrix(sample_data(kosmos_COI_16_phyloseq)))
 kosmos_COI_16samples_metadata <- rownames_to_column(kosmos_COI_16samples_metadata,"#SampleID")
 kosmos_COI_16samples_metadata <- kosmos_COI_16samples_metadata[,!(names(kosmos_COI_16samples_metadata) %in% c("sample_name"))]
@@ -2030,12 +2032,12 @@ kosmos_COI_16samples_metadata %>% mutate(.,group = ifelse(sample %in% c("M15","M
 # metadata_12S <- metadata_12S %>%
 #   dplyr::select("X.SampleID", everything())
 # metadata_12S %>% dplyr::rename("#SampleID" = X.SampleID) -> metadata_12S
-write.table(kosmos_COI_16samples_metadata,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/COI/kosmos_COI_16_sample_data_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_COI_16samples_metadata,here::here("local_deicode_runs", "COI", "kosmos_COI_16_sample_data_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 ```
 
 ### COI: DEICODE RPCA, 3 PCs
 ```{r}
-pco <- read_qza("/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/COI/ordination.qza")
+pco <- read_qza(here::here("local_deicode_runs", "COI", "ordination.qza"))
 
 label.PC1 <- paste0("PC1 (", round(pco$data$ProportionExplained$PC1, 3)*100,"%)")
 label.PC1
@@ -2088,7 +2090,7 @@ pca_gg_sample <- ggplot(pca_data,aes(x=PC1,y=PC2,color = SAMPLING_station_number
 
 pca_gg_sample
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/COI_pca_kosmos_3PCs_16samples_9.25.20.png",pca_gg_sample,width = 7,height = 6)
+ggsave(here::here("figures", "PCA_figure", "COI_pca_kosmos_3PCs_16samples_9.25.20.png"),pca_gg_sample,width = 7,height = 6)
 ```
 
 ## 18S
@@ -2097,10 +2099,10 @@ ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/COI_pca_kosm
 ```{r}
 kosmos_18S_16_asv_table <- as.data.frame(otu_table(kosmos_18S_16_phyloseq))
 kosmos_18S_16_asv_table <- rownames_to_column(kosmos_18S_16_asv_table,"#OTUID")
-write.table(kosmos_18S_16_asv_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/18S/kosmos_18S_16_asv_table_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_18S_16_asv_table,here::here("local_deicode_runs", "18S", "kosmos_18S_16_asv_table_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 kosmos_18S_16_tax_table <- as.data.frame(as(tax_table(kosmos_18S_16_phyloseq),"matrix"))
 kosmos_18S_16_tax_table <- rownames_to_column(kosmos_18S_16_tax_table,"#OTUID")
-write.table(kosmos_18S_16_tax_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/18S/kosmos_18S_16_tax_table_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_18S_16_tax_table,here::here("local_deicode_runs", "18S", "kosmos_18S_16_tax_table_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 kosmos_18S_16samples_metadata <- as.data.frame(as.matrix(sample_data(kosmos_18S_16_phyloseq)))
 kosmos_18S_16samples_metadata <- rownames_to_column(kosmos_18S_16samples_metadata,"#SampleID")
 kosmos_18S_16samples_metadata <- kosmos_18S_16samples_metadata[,!(names(kosmos_18S_16samples_metadata) %in% c("sample_name"))]
@@ -2116,12 +2118,12 @@ kosmos_18S_16samples_metadata %>% mutate(.,group = ifelse(sample %in% c("M15","M
 # metadata_12S <- metadata_12S %>%
 #   dplyr::select("X.SampleID", everything())
 # metadata_12S %>% dplyr::rename("#SampleID" = X.SampleID) -> metadata_12S
-write.table(kosmos_18S_16samples_metadata,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/18S/kosmos_18S_16_sample_data_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_18S_16samples_metadata,here::here("local_deicode_runs", "18S", "kosmos_18S_16_sample_data_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 ```
 
 ### 18S: DEICODE RPCA, 3 PCs
 ```{r}
-pco <- read_qza("/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/18S/ordination.qza")
+pco <- read_qza(here::here("local_deicode_runs", "18S", "ordination.qza"))
 
 label.PC1 <- paste0("PC1 (", round(pco$data$ProportionExplained$PC1, 3)*100,"%)")
 label.PC1
@@ -2175,7 +2177,7 @@ pca_gg_sample <- ggplot(pca_data,aes(x=PC1,y=PC2,color = SAMPLING_station_number
 
 pca_gg_sample
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/18S_pca_kosmos_3PCs_16samples_9.25.20.png",pca_gg_sample,width = 7,height = 6)
+ggsave(here::here("figures", "PCA_figure", "18S_pca_kosmos_3PCs_16samples_9.25.20.png"),pca_gg_sample,width = 7,height = 6)
 ```
 
 ## 12S
@@ -2184,10 +2186,10 @@ ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/18S_pca_kosm
 ```{r}
 kosmos_12S_16_asv_table <- as.data.frame(otu_table(kosmos_12S_16_phyloseq))
 kosmos_12S_16_asv_table <- rownames_to_column(kosmos_12S_16_asv_table,"#OTUID")
-write.table(kosmos_12S_16_asv_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/12S/kosmos_12S_16_asv_table_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_12S_16_asv_table,here::here("local_deicode_runs", "12S", "kosmos_12S_16_asv_table_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 kosmos_12S_16_tax_table <- as.data.frame(as(tax_table(kosmos_12S_16_phyloseq),"matrix"))
 kosmos_12S_16_tax_table <- rownames_to_column(kosmos_12S_16_tax_table,"#OTUID")
-write.table(kosmos_12S_16_tax_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/12S/kosmos_12S_16_tax_table_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_12S_16_tax_table,here::here("local_deicode_runs", "12S", "kosmos_12S_16_tax_table_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 kosmos_12S_16samples_metadata <- as.data.frame(as.matrix(sample_data(kosmos_12S_16_phyloseq)))
 kosmos_12S_16samples_metadata <- rownames_to_column(kosmos_12S_16samples_metadata,"#SampleID")
 kosmos_12S_16samples_metadata <- kosmos_12S_16samples_metadata[,!(names(kosmos_12S_16samples_metadata) %in% c("sample_name"))]
@@ -2203,12 +2205,12 @@ kosmos_12S_16samples_metadata %>% mutate(.,group = ifelse(sample %in% c("M15","M
 # metadata_12S <- metadata_12S %>%
 #   dplyr::select("X.SampleID", everything())
 # metadata_12S %>% dplyr::rename("#SampleID" = X.SampleID) -> metadata_12S
-write.table(kosmos_12S_16samples_metadata,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/12S/kosmos_12S_16_sample_data_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_12S_16samples_metadata,here::here("local_deicode_runs", "12S", "kosmos_12S_16_sample_data_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 ```
 
 ### 12S: DEICODE RPCA, 3 PCs
 ```{r}
-pco <- read_qza("/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/12S/ordination.qza")
+pco <- read_qza(here::here("local_deicode_runs", "12S", "ordination.qza"))
 
 label.PC1 <- paste0("PC1 (", round(pco$data$ProportionExplained$PC1, 3)*100,"%)")
 label.PC1
@@ -2257,7 +2259,7 @@ pca_gg_sample <- ggplot(pca_data,aes(x=PC1,y=PC2,color = SAMPLING_station_number
 
 pca_gg_sample
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/12S_pca_kosmos_3PCs_16samples_9.25.20.png",pca_gg_sample,width = 7,height = 5)
+ggsave(here::here("figures", "PCA_figure", "12S_pca_kosmos_3PCs_16samples_9.25.20.png"),pca_gg_sample,width = 7,height = 5)
 ```
 
 
@@ -2268,10 +2270,10 @@ kosmos_12S_chordata_16_phyloseq <- subset_taxa(kosmos_12S_16_phyloseq, Phylum ==
 
 kosmos_12S_chordata_16_asv_table <- as.data.frame(otu_table(kosmos_12S_chordata_16_phyloseq))
 kosmos_12S_chordata_16_asv_table <- rownames_to_column(kosmos_12S_chordata_16_asv_table,"#OTUID")
-write.table(kosmos_12S_chordata_16_asv_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/12S/chordata/kosmos_12S_chordata_16_asv_table_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_12S_chordata_16_asv_table,here::here("local_deicode_runs", "12S", "chordata", "kosmos_12S_chordata_16_asv_table_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 kosmos_12S_chordata_16_tax_table <- as.data.frame(as(tax_table(kosmos_12S_chordata_16_phyloseq),"matrix"))
 kosmos_12S_chordata_16_tax_table <- rownames_to_column(kosmos_12S_chordata_16_tax_table,"#OTUID")
-write.table(kosmos_12S_chordata_16_tax_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/12S/chordata/kosmos_12S_chordata_16_tax_table_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_12S_chordata_16_tax_table,here::here("local_deicode_runs", "12S", "chordata", "kosmos_12S_chordata_16_tax_table_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 kosmos_12S_chordata_16samples_metadata <- as.data.frame(as.matrix(sample_data(kosmos_12S_chordata_16_phyloseq)))
 kosmos_12S_chordata_16samples_metadata <- rownames_to_column(kosmos_12S_chordata_16samples_metadata,"#SampleID")
 kosmos_12S_chordata_16samples_metadata <- kosmos_12S_chordata_16samples_metadata[,!(names(kosmos_12S_chordata_16samples_metadata) %in% c("sample_name"))]
@@ -2287,12 +2289,12 @@ kosmos_12S_chordata_16samples_metadata %>% mutate(.,group = ifelse(sample %in% c
 # metadata_12S <- metadata_12S %>%
 #   dplyr::select("X.SampleID", everything())
 # metadata_12S %>% dplyr::rename("#SampleID" = X.SampleID) -> metadata_12S
-write.table(kosmos_12S_chordata_16samples_metadata,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/12S/chordata/kosmos_12S_chordata_16_sample_data_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_12S_chordata_16samples_metadata,here::here("local_deicode_runs", "12S", "chordata", "kosmos_12S_chordata_16_sample_data_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 ```
 
 ### 12S, chordates only: DEICODE RPCA, 3 PCs
 ```{r}
-pco <- read_qza("/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/12S/chordata/ordination.qza")
+pco <- read_qza(here::here("local_deicode_runs", "12S", "chordata", "ordination.qza"))
 
 label.PC1 <- paste0("PC1 (", round(pco$data$ProportionExplained$PC1, 3)*100,"%)")
 label.PC1
@@ -2341,7 +2343,7 @@ pca_gg_sample <- ggplot(pca_data,aes(x=PC1,y=PC2,color = SAMPLING_station_number
 
 pca_gg_sample
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/12S_pca_kosmos_chordata_3PCs_16samples_9.25.20.png",pca_gg_sample,width = 7,height = 6)
+ggsave(here::here("figures", "PCA_figure", "12S_pca_kosmos_chordata_3PCs_16samples_9.25.20.png"),pca_gg_sample,width = 7,height = 6)
 ```
 
 ## 16S rRNA: chloroplast sequences
@@ -2349,10 +2351,10 @@ ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/12S_pca_kosm
 ```{r}
 chloroplast_16_asv_table <- as.data.frame(otu_table(chloroplast_16_phyloseq))
 chloroplast_16_asv_table <- rownames_to_column(chloroplast_16_asv_table,"#OTUID")
-write.table(chloroplast_16_asv_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/16S_plastidial/kosmos_chloroplast_asv_table_16samples_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(chloroplast_16_asv_table,here::here("local_deicode_runs", "16S_plastidial", "kosmos_chloroplast_asv_table_16samples_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 chloroplast_16_tax_table<- as.data.frame(as(tax_table(chloroplast_16_phyloseq),"matrix"))
 chloroplast_16_tax_table <- rownames_to_column(chloroplast_16_tax_table,"#OTUID")
-write.table(chloroplast_16_tax_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/16S_plastidial/kosmos_chloroplast_tax_table_16samples_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(chloroplast_16_tax_table,here::here("local_deicode_runs", "16S_plastidial", "kosmos_chloroplast_tax_table_16samples_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 kosmos_16S_16_metadata <- as.data.frame(as.matrix(sample_data(chloroplast_16_phyloseq)))
 kosmos_16S_16_metadata <- rownames_to_column(kosmos_16S_16_metadata,"#SampleID")
 # Add a column for group (M1 after OMZ water addition, or Pacific + first two M1 samples)
@@ -2361,13 +2363,13 @@ kosmos_16S_16_metadata %>% mutate(.,group = ifelse(sample %in% c("M15","M24","M3
 # metadata_12S <- metadata_12S %>%
 #   dplyr::select("X.SampleID", everything())
 # metadata_12S %>% dplyr::rename("#SampleID" = X.SampleID) -> metadata_12S
-write.table(kosmos_16S_16_metadata,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/16S_plastidial/KOSMOS_sample_data_16S_16samples_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_16S_16_metadata,here::here("local_deicode_runs", "16S_plastidial", "KOSMOS_sample_data_16S_16samples_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 ```
 
 ### 16S chloroplast: DEICODE RPCA, 3 PCs
 ```{r}
 
-pco<-read_qza("/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/16S_plastidial/ordination.qza")
+pco<-read_qza(here::here("local_deicode_runs", "16S_plastidial", "ordination.qza"))
 
 
 label.PC1 <- paste0("PC1 (", round(pco$data$ProportionExplained$PC1, 3)*100,"%)")
@@ -2416,7 +2418,7 @@ pca_gg_sample <- ggplot(pca_data,aes(x=PC1,y=PC2,color = SAMPLING_station_number
 
 pca_gg_sample
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/16S_plastidial_pca_kosmos_3PCs_16samples_9.25.20.png",pca_gg_sample,width = 7,height = 6)
+ggsave(here::here("figures", "PCA_figure", "16S_plastidial_pca_kosmos_3PCs_16samples_9.25.20.png"),pca_gg_sample,width = 7,height = 6)
 ```
 
 
@@ -2425,10 +2427,10 @@ ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/16S_plastidi
 ```{r}
 bacteria_16_asv_table <- as.data.frame(otu_table(bacteria_16_phyloseq))
 bacteria_16_asv_table <- rownames_to_column(bacteria_16_asv_table,"#OTUID")
-write.table(bacteria_16_asv_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/16S_bacterial/kosmos_bacteria_asv_table_16samples_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(bacteria_16_asv_table,here::here("local_deicode_runs", "16S_bacterial", "kosmos_bacteria_asv_table_16samples_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 bacteria_16_tax_table<- as.data.frame(as(tax_table(bacteria_16_phyloseq),"matrix"))
 bacteria_16_tax_table <- rownames_to_column(bacteria_16_tax_table,"#OTUID")
-write.table(bacteria_16_tax_table,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/16S_bacterial/kosmos_bacteria_tax_table_16samples_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(bacteria_16_tax_table,here::here("local_deicode_runs", "16S_bacterial", "kosmos_bacteria_tax_table_16samples_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 kosmos_16S_16_metadata <- as.data.frame(as.matrix(sample_data(bacteria_16_phyloseq)))
 kosmos_16S_16_metadata <- rownames_to_column(kosmos_16S_16_metadata,"#SampleID")
 # Add a column for group (M1 after OMZ water addition, or Pacific + first two M1 samples)
@@ -2437,13 +2439,13 @@ kosmos_16S_16_metadata %>% mutate(.,group = ifelse(sample %in% c("M15","M24","M3
 # metadata_12S <- metadata_12S %>%
 #   dplyr::select("X.SampleID", everything())
 # metadata_12S %>% dplyr::rename("#SampleID" = X.SampleID) -> metadata_12S
-write.table(kosmos_16S_16_metadata,"/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/16S_bacterial/KOSMOS_sample_data_bacteria_16samples_for_biom.txt",sep = "\t",row.names = FALSE,quote = FALSE)
+write.table(kosmos_16S_16_metadata,here::here("local_deicode_runs", "16S_bacterial", "KOSMOS_sample_data_bacteria_16samples_for_biom.txt"),sep = "\t",row.names = FALSE,quote = FALSE)
 ```
 
 
 ### 16S bacteria: DEICODE RPCA, 3 PCs
 ```{r}
-pco<-read_qza("/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/16S_bacterial/ordination.qza")
+pco<-read_qza(here::here("local_deicode_runs", "16S_bacterial", "ordination.qza"))
 
 label.PC1 <- paste0("PC1 (", round(pco$data$ProportionExplained$PC1, 3)*100,"%)")
 label.PC1
@@ -2494,7 +2496,7 @@ pca_gg_sample <- ggplot(pca_data,aes(x=PC1,y=PC2,color = SAMPLING_station_number
 
 pca_gg_sample
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/16S_bacterial_pca_kosmos_3PCs_16samples_9.25.20.png",pca_gg_sample,width = 7,height = 6)
+ggsave(here::here("figures", "PCA_figure", "16S_bacterial_pca_kosmos_3PCs_16samples_9.25.20.png"),pca_gg_sample,width = 7,height = 6)
 ```
 
 
@@ -2599,7 +2601,7 @@ legend_gg<-ggplot(legend_data, aes(x=fakesample,y=fakedata,fill=allgroups))+
 legend_gg
 
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/combined_figure_legend_top30_092520.png",legend_gg,width = 21, height = 5)
+ggsave(here::here("figures", "PCA_figure", "combined_figure_legend_top30_092520.png"),legend_gg,width = 21, height = 5)
 
 # Make color scheme
 group_colors = c("Rhodophytes" = "#E15759",      
@@ -2632,7 +2634,7 @@ group_colors = c("Rhodophytes" = "#E15759",
 
 ### Load in PC loadings data
 ```{r}
-pco <- read_qza("/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/COI/ordination.qza")
+pco <- read_qza(here::here("local_deicode_runs", "COI", "ordination.qza"))
 PC_loadings_COI <- pco$data$Species
 
 # Scaling PCA?
@@ -2697,7 +2699,7 @@ PC_loadings_COI %>% mutate(.,group =
 unique(PC_loadings_COI$group)
 
 # Add in information from ASV_tophit_F_taxonomy table
-tophit_taxonomy <- read.csv("/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/COI/X/ASV_tophit_Ftaxonomy.csv")
+tophit_taxonomy <- read.csv("/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/COI/X/ASV_tophit_Ftaxonomy.csv")
 colnames(tophit_taxonomy)[1] <- "FeatureID"
 colnames(tophit_taxonomy)[6] <- "precent_ID"
 
@@ -2803,14 +2805,14 @@ COI_PCA_gg <- ggplot(PC_loadings_COI_30,aes(x = reorder(FeatureID,PC1),y = PC1, 
 
 COI_PCA_gg
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/COI_PC1_unmerged_top30_072720.png",COI_PCA_gg,width = 7, height = 8.5)
+ggsave(here::here("figures", "PCA_figure", "COI_PC1_unmerged_top30_072720.png"),COI_PCA_gg,width = 7, height = 8.5)
 ```
 
 ## 18S
 
 ### Load in PC loadings data
 ```{r}
-pco <- read_qza("/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/18S/ordination.qza")
+pco <- read_qza(here::here("local_deicode_runs", "18S", "ordination.qza"))
 PC_loadings_18S <- pco$data$Species
 
 # Scaling PCA?
@@ -2876,7 +2878,7 @@ PC_loadings_18S %>% mutate(.,group =
 # unique(PC_loadings_18S$group)
 
 # Add in information from ASV_tophit_F_taxonomy table
-tophit_taxonomy <- read.csv("/Users/mmin/Documents/eDNA_meta_analysis_local_data/banzai_dada2/18S/UU/ASV_tophit_Ftaxonomy.csv")
+tophit_taxonomy <- read.csv("/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/18S/UU/ASV_tophit_Ftaxonomy.csv")
 colnames(tophit_taxonomy)[1] <- "FeatureID"
 colnames(tophit_taxonomy)[6] <- "precent_ID"
 
@@ -2982,7 +2984,7 @@ PCA_gg_18S <- ggplot(PC_loadings_18S_30,aes(x = reorder(FeatureID,PC1),y = PC1, 
 
 PCA_gg_18S
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/18S_PC1_unmerged_top30_092520.png",PCA_gg_18S,width = 7, height = 8.5)
+ggsave(here::here("figures", "PCA_figure", "18S_PC1_unmerged_top30_092520.png"),PCA_gg_18S,width = 7, height = 8.5)
 ```
 
 
@@ -2990,7 +2992,7 @@ ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/18S_PC1_unme
 
 ### Load in PC loadings data
 ```{r}
-pco<-read_qza("/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/16S_plastidial/ordination.qza")
+pco<-read_qza(here::here("local_deicode_runs", "16S_plastidial", "ordination.qza"))
 PC_loadings_chloroplast <- pco$data$Species
 kosmos_chloroplast_tax_table <- dplyr::rename(chloroplast_16_tax_table,FeatureID = "#OTUID")
 PC_loadings_chloroplast <- left_join(PC_loadings_chloroplast,kosmos_chloroplast_tax_table,by = "FeatureID")
@@ -3119,14 +3121,14 @@ chloroplast_PCA_gg <- ggplot(PC_loadings_chloroplast_30,aes(x = reorder(FeatureI
 
 chloroplast_PCA_gg
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/16S_plastidial_PC1_unmerged_top30_092520.png",chloroplast_PCA_gg,width = 7, height = 8.5)
+ggsave(here::here("figures", "PCA_figure", "16S_plastidial_PC1_unmerged_top30_092520.png"),chloroplast_PCA_gg,width = 7, height = 8.5)
 ```
 
 ## 16S Bacterial
 
 ### bacteria unmerged
 ```{r}
-pco<-read_qza("/Users/mmin/Documents/KOSMOS_data_local/local_deicode_runs/FINAL/16S_bacterial/ordination.qza")
+pco<-read_qza(here::here("local_deicode_runs", "16S_bacterial", "ordination.qza"))
 PC_loadings_bacteria <- pco$data$Species
 kosmos_bacteria_tax_table <- dplyr::rename(bacteria_16_tax_table,FeatureID = "#OTUID")
 PC_loadings_bacteria <- left_join(PC_loadings_bacteria,kosmos_bacteria_tax_table,by = "FeatureID")
@@ -3281,7 +3283,7 @@ bacteria_PCA_gg <- ggplot(PC_loadings_bacteria_30,aes(x = reorder(FeatureID,PC1)
 
 bacteria_PCA_gg
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/PCA_figure/FINAL/16S_bacterial_PC1_unmerged_top30_100520.png",bacteria_PCA_gg,width = 7, height = 8.5)
+ggsave(here::here("figures", "PCA_figure", "16S_bacterial_PC1_unmerged_top30_100520.png"),bacteria_PCA_gg,width = 7, height = 8.5)
 ```
 
 # Vertebrate detections (Figure 4)
@@ -3311,7 +3313,7 @@ kosmos_12S_sample_sums_gg <- ggplot(kosmos_12S_sample_sums,aes(x = sample_name,y
 
 kosmos_12S_sample_sums_gg
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/12S/12S_sample_sums.png",kosmos_12S_sample_sums_gg,width = 10, height = 6)
+ggsave(here::here("figures", "12S", "12S_sample_sums.png"),kosmos_12S_sample_sums_gg,width = 10, height = 6)
 ```
 
 
@@ -3333,7 +3335,7 @@ kosmos_12S_taxa_sums <- kosmos_12S_taxa_sums[order(-kosmos_12S_taxa_sums$total_r
 dplyr::select(kosmos_12S_taxa_sums,-ASV) %>% group_by(Kingdom,Phylum, Class,Order, Family, Genus, Species) %>% summarise_all(funs(sum)) -> kosmos_12S_taxa_sums_grouped 
 kosmos_12S_taxa_sums_grouped <- kosmos_12S_taxa_sums_grouped[order(-kosmos_12S_taxa_sums_grouped$total_reads),]
 
-write.csv(kosmos_12S_taxa_sums_grouped,"/Users/mmin/Documents/KOSMOS_paper_figures/12S/kosmos_12S_taxa_sums.csv")
+write.csv(kosmos_12S_taxa_sums_grouped,here::here("figures", "12S", "kosmos_12S_taxa_sums.csv"))
 ```
 
 ## Prep data for barplot
@@ -3422,10 +3424,10 @@ kosmos_12S_chordata_merged_combined_table_long$genus_updated <- factor(kosmos_12
 
 #### Load in the images of Inca Tern and Brown Pelican from phylopic
 ```{r}
-inca_tern <- readPNG("/Users/mmin/Documents/KOSMOS_paper_figures/phylopic/inca_tern.png")
+inca_tern <- readPNG(here::here("figures", "phylopic", "inca_tern.png"))
 inca_tern_img <- rasterGrob(inca_tern, interpolate=TRUE)
 
-pelican <- readPNG("/Users/mmin/Documents/KOSMOS_paper_figures/phylopic/pelican.png")
+pelican <- readPNG(here::here("figures", "phylopic", "pelican.png"))
 pelican_img <- rasterGrob(pelican, interpolate=TRUE)
 ```
 
@@ -3456,7 +3458,7 @@ kosmos_12S_barplot <- ggplot(subset(kosmos_12S_chordata_merged_combined_table_lo
 
 kosmos_12S_barplot
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/12S/12S_mesocosm_barplot_no_paralichthys_genus_plus_birds_090220.png",kosmos_12S_barplot,width = 8, height = 3.5)
+ggsave(here::here("figures", "12S", "12S_mesocosm_barplot_no_paralichthys_genus_plus_birds_090220.png"),kosmos_12S_barplot,width = 8, height = 3.5)
 ```
 
 ### Plot MP separately
@@ -3482,7 +3484,7 @@ kosmos_12S_barplot <- ggplot(subset(kosmos_12S_chordata_merged_combined_table_lo
 
 kosmos_12S_barplot
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/12S/12S_pacific_barplot_noparalichthys_genus.png",kosmos_12S_barplot,width = 8, height = 3.5)
+ggsave(here::here("figures", "12S", "12S_pacific_barplot_noparalichthys_genus.png"),kosmos_12S_barplot,width = 8, height = 3.5)
 ```
 
 ### Create a legend
@@ -3511,7 +3513,7 @@ legend_gg<-ggplot(legend_data, aes(x=fakesample,y=fakedata,fill=allgroups))+
 legend_gg
 
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/12S/12S_genus_barplot_legend.png",legend_gg,width = 8, height = 2)
+ggsave(here::here("figures", "12S", "12S_genus_barplot_legend.png"),legend_gg,width = 8, height = 2)
 ```
 
 ## Plot Paralichthys in M1
@@ -3566,5 +3568,5 @@ paralichthys_M1_gg <- ggplot(paralichthys_M1_long, aes(x = sample_name, y = read
   
 paralichthys_M1_gg
 
-ggsave("/Users/mmin/Documents/KOSMOS_paper_figures/12S/paralichthys_M1.png",paralichthys_M1_gg,width = 8, height = 4)
+ggsave(here::here("figures", "12S", "paralichthys_M1.png"),paralichthys_M1_gg,width = 8, height = 4)
 ```

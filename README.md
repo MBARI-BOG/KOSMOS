@@ -2,7 +2,5 @@
 Data and analytical code for the KOSMOS eDNA paper.
 
 Citation:
-Ecological divergence of a mesocosm in an eastern boundary upwelling system assessed with multi-marker environmental DNA metabarcoding 
-
-Markus A. Min1,2, David M. Needham1,3, Sebastian Sudek1, N. Kobun Truelove1, Kathleen Pitz1, Gabriela M. Chavez1,3, Camille Poirier1,3, Bente Gardeler1,3, Elizabeth von der Esch4, Andrea Ludwig3, Ulf Riebesell3, Alexandra Z. Worden1,3, and Francisco P. Chavez1 
+*Ecological divergence of a mesocosm in an eastern boundary upwelling system assessed with multi-marker environmental DNA metabarcoding. Submitted to Biogeosciences. Markus A. Min, David M. Needham, Sebastian Sudek, N. Kobun Truelove, Kathleen Pitz, Gabriela M. Chavez, Camille Poirier, Bente Gardeler, Elizabeth von der Esch, Andrea Ludwig, Ulf Riebesell, Alexandra Z. Worden, and Francisco P. Chavez*
 

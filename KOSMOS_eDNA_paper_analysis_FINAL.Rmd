@@ -427,11 +427,11 @@ for (i in seq(1:length(variable_names))){
     geom_vline(xintercept = 13, lty = 2, color = "#ff7f00", size = 1)+
     geom_vline(xintercept = 33, lty = 2, color = "#ff7f00", size = 1)+
     # Use an ifelse statement to change the y labels
-    ylab(ifelse(panel[i] == "(f)",expression(bold(~"Synechococcus")),
-                ifelse(panel[i] == "(g)",expression(bold(~"Total Eukaryotes")),
+    ylab(ifelse(panel[i] == "(f)",expression(bolditalic(~"Synechococcus")),
+                ifelse(panel[i] == "(g)",expression(bold(~"Total eukaryotes")),
                        ifelse(panel[i] == "(h)",expression(bold(~"Cryptophytes")),
-                              ifelse(panel[i] == "(i)",expression(bold(~"Heterotrophic Bacteria")),
-                                     ifelse(panel[i] == "(j)",expression(bold(~"Small Bacteria")),
+                              ifelse(panel[i] == "(i)",expression(bold(~"Heterotrophic bacteria")),
+                                     ifelse(panel[i] == "(j)",expression(bold(~"Small bacteria")),
                                             "oops you messed up"))))))
   
   ggsave(here::here("figures", "biogeochemical_figure", paste0(variable_names[i],"_gg.png")),plot,width = 7, height = ifelse(panel[i] %in% c("(f)","(j)"),3.5,3))
@@ -2091,6 +2091,31 @@ pca_gg_sample <- ggplot(pca_data,aes(x=PC1,y=PC2,color = SAMPLING_station_number
 pca_gg_sample
 
 ggsave(here::here("figures", "PCA_figure", "COI_pca_kosmos_3PCs_16samples_9.25.20.png"),pca_gg_sample,width = 7,height = 6)
+
+##### PERMANOVA #####
+# Extract metadata
+pca_metadata <- pca_data
+# pca_metadata %>% dplyr::rename(., "SampleID" = "#SampleID") -> pca_metadata
+
+# Create a new column to compare M1 post OMZ water addition with other samples
+pca_metadata %>% 
+  mutate(permanova_group = ifelse(SAMPLING_station == "Pacific" | SAMPLING_station == "Mesocosm 1" & sample == "M1" | SAMPLING_station == "Mesocosm 1" & sample == "M8",
+                                  "Pacific & M1 pre-OMZ", "M1 post-OMZ")) -> pca_metadata
+
+## Load COI Data
+distance <- read_qza(here::here("local_deicode_runs", "COI", "distance.qza"))
+
+# Extract distance matrix
+distance_matrix <- distance$data
+
+# convert DEICODE matrix to "dist" class object
+PCA_dist <- as.dist(distance_matrix)
+##----Run individual PERMANOVAs-------------------------------------------------------------
+
+# PERMANOVA for CTD vs. ESP
+set.seed(123)
+M1_v_Pacific_permanova_COI <- adonis2(PCA_dist ~ permanova_group, data = pca_metadata, permutations=999)
+M1_v_Pacific_permanova_COI
 ```
 
 ## 18S
@@ -2178,7 +2203,34 @@ pca_gg_sample <- ggplot(pca_data,aes(x=PC1,y=PC2,color = SAMPLING_station_number
 pca_gg_sample
 
 ggsave(here::here("figures", "PCA_figure", "18S_pca_kosmos_3PCs_16samples_9.25.20.png"),pca_gg_sample,width = 7,height = 6)
+
+##### PERMANOVA #####
+# Extract metadata
+pca_metadata <- pca_data
+# pca_metadata %>% dplyr::rename(., "SampleID" = "#SampleID") -> pca_metadata
+
+# Create a new column to compare M1 post OMZ water addition with other samples
+pca_metadata %>% 
+  mutate(permanova_group = ifelse(SAMPLING_station == "Pacific" | SAMPLING_station == "Mesocosm 1" & sample == "M1" | SAMPLING_station == "Mesocosm 1" & sample == "M8",
+                                  "Pacific & M1 pre-OMZ", "M1 post-OMZ")) -> pca_metadata
+
+## Load COI Data
+distance <- read_qza(here::here("local_deicode_runs", "18S", "distance.qza"))
+
+# Extract distance matrix
+distance_matrix <- distance$data
+
+# convert DEICODE matrix to "dist" class object
+PCA_dist <- as.dist(distance_matrix)
+##----Run individual PERMANOVAs-------------------------------------------------------------
+
+# PERMANOVA for CTD vs. ESP
+set.seed(123)
+M1_v_Pacific_permanova_18S <- adonis2(PCA_dist ~ permanova_group, data = pca_metadata, permutations=999)
+M1_v_Pacific_permanova_18S
 ```
+
+
 
 ## 12S
 
@@ -2419,6 +2471,31 @@ pca_gg_sample <- ggplot(pca_data,aes(x=PC1,y=PC2,color = SAMPLING_station_number
 pca_gg_sample
 
 ggsave(here::here("figures", "PCA_figure", "16S_plastidial_pca_kosmos_3PCs_16samples_9.25.20.png"),pca_gg_sample,width = 7,height = 6)
+
+##### PERMANOVA #####
+# Extract metadata
+pca_metadata <- pca_data
+# pca_metadata %>% dplyr::rename(., "SampleID" = "#SampleID") -> pca_metadata
+
+# Create a new column to compare M1 post OMZ water addition with other samples
+pca_metadata %>% 
+  mutate(permanova_group = ifelse(SAMPLING_station == "Pacific" | SAMPLING_station == "Mesocosm 1" & sample == "M1" | SAMPLING_station == "Mesocosm 1" & sample == "M8",
+                                  "Pacific & M1 pre-OMZ", "M1 post-OMZ")) -> pca_metadata
+
+## Load COI Data
+distance <- read_qza(here::here("local_deicode_runs", "16S_plastidial", "distance.qza"))
+
+# Extract distance matrix
+distance_matrix <- distance$data
+
+# convert DEICODE matrix to "dist" class object
+PCA_dist <- as.dist(distance_matrix)
+##----Run individual PERMANOVAs-------------------------------------------------------------
+
+# PERMANOVA for CTD vs. ESP
+set.seed(123)
+M1_v_Pacific_permanova_16S_plastidial <- adonis2(PCA_dist ~ permanova_group, data = pca_metadata, permutations=999)
+M1_v_Pacific_permanova_16S_plastidial
 ```
 
 
@@ -2497,10 +2574,35 @@ pca_gg_sample <- ggplot(pca_data,aes(x=PC1,y=PC2,color = SAMPLING_station_number
 pca_gg_sample
 
 ggsave(here::here("figures", "PCA_figure", "16S_bacterial_pca_kosmos_3PCs_16samples_9.25.20.png"),pca_gg_sample,width = 7,height = 6)
+
+##### PERMANOVA #####
+# Extract metadata
+pca_metadata <- pca_data
+# pca_metadata %>% dplyr::rename(., "SampleID" = "#SampleID") -> pca_metadata
+
+# Create a new column to compare M1 post OMZ water addition with other samples
+pca_metadata %>% 
+  mutate(permanova_group = ifelse(SAMPLING_station == "Pacific" | SAMPLING_station == "Mesocosm 1" & sample == "M1" | SAMPLING_station == "Mesocosm 1" & sample == "M8",
+                                  "Pacific & M1 pre-OMZ", "M1 post-OMZ")) -> pca_metadata
+
+## Load COI Data
+distance <- read_qza(here::here("local_deicode_runs", "16S_bacterial", "distance.qza"))
+
+# Extract distance matrix
+distance_matrix <- distance$data
+
+# convert DEICODE matrix to "dist" class object
+PCA_dist <- as.dist(distance_matrix)
+##----Run individual PERMANOVAs-------------------------------------------------------------
+
+# PERMANOVA for CTD vs. ESP
+set.seed(123)
+M1_v_Pacific_permanova_16S_bacteria <- adonis2(PCA_dist ~ permanova_group, data = pca_metadata, permutations=999)
+M1_v_Pacific_permanova_16S_bacteria
 ```
 
 
-# PC Loadings Analysis: Unmerged ASVs (Figure 4)
+# PC Loadings Analysis: Unmerged ASVs (Figure 3, bottom half)
 
 ## Make the legend for all plots and create a color scheme
 ``` {r}
@@ -3498,13 +3600,16 @@ legend_data$allgroups <- factor(unique(kosmos_12S_chordata_merged_combined_table
 
 legend_gg<-ggplot(legend_data, aes(x=fakesample,y=fakedata,fill=allgroups))+
     geom_bar(stat='identity')+theme_minimal()+
-  scale_fill_tableau(palette = "Tableau 20")+
+  # scale_fill_tableau(palette = "Tableau 20")+
+  scale_fill_tableau(palette = "Tableau 20",
+                     labels = c(expression(italic("Engraulis")), "Family Sciaenidae", "Family Engraulidae", expression(italic("Odontesthes")), "Family Haemulidae",  expression(italic("Ethmidium")), expression(italic("Bairdiella")), expression(italic("Citharichthys")), expression(italic("Sardinops")), expression(italic("Scomber")), "other", "unassigned"))+
     theme(axis.text.x = element_blank(),
             legend.position = "right",
           axis.title=element_text(size=8),
           plot.margin = unit(c(0,5,0,0), "pt"),
           legend.text=element_text(size=10),
-          legend.title = element_blank()
+          legend.title = element_blank(),
+          legend.text.align = 0
     )+
     guides(fill=guide_legend(ncol=4))+
     xlab("Sample")+

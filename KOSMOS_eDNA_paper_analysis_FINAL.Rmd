@@ -7,7 +7,7 @@ output:
 ---
 
 ### Description
-This R markdown file contains all of the analyses for the KOSMOS paper. Please note - some data files (i.e., the sequencing data) are too large to upload to GitHub and therefore some code chunks will not work. If you require these datasets, please contact me at mmin@uw.edu.
+This R markdown file contains all of the analyses for the KOSMOS paper. For any questions about the analysis, please contact me at mmin@uw.edu.
 
 ### Load libraries
 
@@ -288,7 +288,7 @@ legend_gg <- ggplot(data = T_long, aes(x = Day, y = value, color = variable))+
 
 legend_gg
 
-ggsave("legend_gg.png", width = 7, height = 1,path = here::here("figures"))
+ggsave("legend_gg.png", width = 7, height = 1,path = here::here("figures", "biogeochemical_figure"))
 
 # Re-make, but with OMZ addition and NaCl brine additions in legend
 
@@ -914,7 +914,7 @@ metadata_updated %>% mutate(.,year_updated = year(date_time_updated)) -> metadat
 ```
 
 ### Drop samples based on metadata attributes
-```{r}
+```{r eval = FALSE}
 # Drop 67-70 for the C3PO19 cruise - this is the cast where the samples got mixed up
 metadata_updated <- subset(metadata_updated, !(SAMPLING_station %in% c("67-70") & SAMPLING_cruise == "C3PO19"))
 

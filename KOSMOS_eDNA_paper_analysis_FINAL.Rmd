@@ -478,10 +478,12 @@ ggsave("legend_gg.png", width = 7, height = 1,path = here::here("figures", "biog
 # Read in eDNA data (COI, 18S, 12S, 16S)
 We will be reading in the master datasets from MBON and subsetting out only the KOSMOS project.
 
+Please note: there are some code chunks that have "eval = FALSE" because they are used to subset the master datasets, which are too large to upload to GitHub.
+
 ## COI
 
 ### Read in metadata, make edits
-```{r}
+```{r eval = FALSE}
 metadata <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/COI/for_MBON/decontaminated/072720/COI_master_metadata.csv")
 metadata$sample_name <- as.character(metadata$sample_name)
 
@@ -615,7 +617,7 @@ metadata_updated %>% mutate(.,year_updated = year(date_time_updated)) -> metadat
 ```
 
 ### Drop samples based on metadata attributes
-```{r}
+```{r eval = FALSE}
 # Drop 67-70 for the C3PO19 cruise - this is the cast where we the filters got mixed up
 metadata_updated <- subset(metadata_updated, !(SAMPLING_station %in% c("67-70") & SAMPLING_cruise == "C3PO19"))
 
@@ -637,7 +639,7 @@ metadata_updated <- column_to_rownames(metadata_updated,"sample_name")
 
 
 ### Fix asv table so that there aren't any leading Xs in the column names
-```{r}
+```{r eval = FALSE}
 asv_table <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/COI/for_MBON/decontaminated/072720/COI_master_ASV_table.csv",row.names = 1, check.names = FALSE)
 destroyX = function(es) {
   f = es
@@ -653,7 +655,7 @@ asv_table <- destroyX(asv_table)
 
 
 ### Load master asv_table, metadata, and tax_table objects
-```{r}
+```{r eval = FALSE}
 asv_table <- otu_table(asv_table,taxa_are_rows = TRUE)
 sample_data <- sample_data(metadata_updated)
 tax_table <- tax_table(as.matrix(read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/COI/for_MBON/decontaminated/072720/COI_master_tax_table.csv",row.names = 1)))
@@ -661,7 +663,7 @@ master_phyloseq_COI <- merge_phyloseq(asv_table,sample_data,tax_table)
 ```
 
 ### Remove terrestrial contaminants
-```{r}
+```{r eval = FALSE}
 
 ## Decontaminate
 # no humans
@@ -727,30 +729,55 @@ master_phyloseq_COI
 ```
 
 ### Subset KOSMOS samples and export data
-```{r}
+```{r eval = FALSE}
 # Subset out KOSMOS samples
 kosmos_COI_phyloseq <- prune_samples(sample_data(master_phyloseq_COI)$SAMPLING_project %in% c("KOSMOS"),master_phyloseq_COI)
 kosmos_COI_phyloseq <- prune_taxa(taxa_sums(kosmos_COI_phyloseq)>0,kosmos_COI_phyloseq)
 
-# Export metadata to share with John Zicker
-# write.csv(as.matrix(sample_data(kosmos_COI_phyloseq)), "/Users/mmin/Documents/KOSMOS_data_local/kosmos_metadata_082720.csv")
+# kosmos_COI <- left_join(kosmos_COI_asv_table, kosmos_COI_tax_table, by = "ASV")
+# write.csv(kosmos_COI, "/Users/mmin/Documents/KOSMOS_data_local/kosmos_COI_061620.csv")
 
-kosmos_COI_16_phyloseq <- prune_samples(sample_data(kosmos_COI_phyloseq)$SAMPLING_station_number %in% c("M1","MP"), kosmos_COI_phyloseq)
-kosmos_COI_16_phyloseq <- prune_taxa(taxa_sums(kosmos_COI_16_phyloseq)>0,kosmos_COI_16_phyloseq)
-
+# EXPORT FILES FOR UPLOAD TO GITHUB
+# ASV table
 kosmos_COI_asv_table <- as.data.frame(as(otu_table(kosmos_COI_phyloseq),"matrix"))
 rownames_to_column(kosmos_COI_asv_table,"ASV") -> kosmos_COI_asv_table
+# tax table
 kosmos_COI_tax_table <- as.data.frame(as(tax_table(kosmos_COI_phyloseq),"matrix"))
 rownames_to_column(kosmos_COI_tax_table,"ASV") -> kosmos_COI_tax_table
+# metadata
+kosmos_COI_metadata <- as.data.frame(as.matrix(sample_data(kosmos_COI_phyloseq)))
+rownames_to_column(kosmos_COI_metadata,"SampleID") -> kosmos_COI_metadata
 
-kosmos_COI <- left_join(kosmos_COI_asv_table, kosmos_COI_tax_table, by = "ASV")
-# write.csv(kosmos_COI, "/Users/mmin/Documents/KOSMOS_data_local/kosmos_COI_061620.csv")
+# export three files
+write.csv(kosmos_COI_asv_table, here::here("data", "kosmos_eDNA_data", "kosmos_COI_asv_table.csv"), row.names = FALSE)
+write.csv(kosmos_COI_tax_table, here::here("data", "kosmos_eDNA_data", "kosmos_COI_tax_table.csv"), row.names = FALSE)
+write.csv(kosmos_COI_metadata, here::here("data", "kosmos_eDNA_data", "kosmos_COI_metadata.csv"), row.names = FALSE)
 ```
+
+### load KOSMOS data
+```{r}
+# read data
+kosmos_COI_asv_table <- read.csv(here::here("data", "kosmos_eDNA_data", "kosmos_COI_asv_table.csv"), row.names = 1)
+kosmos_COI_tax_table <- read.csv(here::here("data", "kosmos_eDNA_data", "kosmos_COI_tax_table.csv"), row.names = 1)
+kosmos_COI_metadata <- read.csv(here::here("data", "kosmos_eDNA_data", "kosmos_COI_metadata.csv"), row.names = 1)
+
+
+# reformat and join as phyloseq object
+asv_table <- otu_table(kosmos_COI_asv_table,taxa_are_rows = TRUE)
+sample_data <- sample_data(kosmos_COI_metadata)
+tax_table <- tax_table(as.matrix(kosmos_COI_tax_table))
+kosmos_COI_phyloseq <- merge_phyloseq(asv_table,sample_data,tax_table)
+
+# Subset only environmental samples (non-controls)
+kosmos_COI_16_phyloseq <- prune_samples(sample_data(kosmos_COI_phyloseq)$SAMPLING_station_number %in% c("M1","MP"), kosmos_COI_phyloseq)
+kosmos_COI_16_phyloseq <- prune_taxa(taxa_sums(kosmos_COI_16_phyloseq)>0,kosmos_COI_16_phyloseq)
+```
+
 
 ## 18S
 
 ### Read in metadata, make edits
-```{r}
+```{r eval = FALSE}
 metadata <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/18S/for_MBON/decontaminated/072720/18S_master_metadata.csv")
 metadata$sample_name <- as.character(metadata$sample_name)
 
@@ -907,7 +934,7 @@ metadata_updated <- column_to_rownames(metadata_updated,"sample_name")
 
 
 ### Fix asv table so that there aren't any leading Xs in the column names
-```{r}
+```{r eval = FALSE}
 asv_table <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/18S/for_MBON/decontaminated/072720/18S_master_ASV_table.csv",row.names = 1, check.names = FALSE)
 destroyX = function(es) {
   f = es
@@ -922,7 +949,7 @@ asv_table <- destroyX(asv_table)
 ```
 
 ### Make edits to tax table
-```{r}
+```{r eval = FALSE}
 tax_table_df <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/18S/for_MBON/decontaminated/072720/18S_master_tax_table.csv")
 tax_table_df$Kingdom <- as.character(tax_table_df$Kingdom)
 tax_table_df$Phylum <- as.character(tax_table_df$Phylum)
@@ -943,7 +970,7 @@ tax_table_df <- column_to_rownames(tax_table_df,"ASV")
 
 
 ### Load master asv_table, metadata, and tax_table objects
-```{r}
+```{r eval = FALSE}
 asv_table <- otu_table(asv_table,taxa_are_rows = TRUE)
 sample_data <- sample_data(metadata_updated)
 tax_table <- tax_table(as.matrix(tax_table_df))
@@ -951,7 +978,7 @@ master_phyloseq_18S <- merge_phyloseq(asv_table,sample_data,tax_table)
 ```
 
 ### Remove terrestrial contaminants
-```{r}
+```{r eval = FALSE}
 ## Decontaminate
 # no humans
 master_phyloseq_18S <- master_phyloseq_18S %>%
@@ -1004,20 +1031,48 @@ master_phyloseq_18S
 ```
 
 ### Subset KOSMOS samples and export data
-```{r}
+```{r eval = FALSE}
+# Subset out KOSMOS samples
 kosmos_18S_phyloseq <- prune_samples(sample_data(master_phyloseq_18S)$SAMPLING_project %in% c("KOSMOS"),master_phyloseq_18S)
 kosmos_18S_phyloseq <- prune_taxa(taxa_sums(kosmos_18S_phyloseq)>0,kosmos_18S_phyloseq)
 
-kosmos_18S_16_phyloseq <- prune_samples(sample_data(kosmos_18S_phyloseq)$SAMPLING_station_number %in% c("M1","MP"), kosmos_18S_phyloseq)
-kosmos_18S_16_phyloseq <- prune_taxa(taxa_sums(kosmos_18S_16_phyloseq)>0,kosmos_18S_16_phyloseq)
+# kosmos_18S <- left_join(kosmos_18S_asv_table, kosmos_18S_tax_table, by = "ASV")
+# write.csv(kosmos_18S, "/Users/mmin/Documents/KOSMOS_data_local/kosmos_18S_061620.csv")
 
+# EXPORT FILES FOR UPLOAD TO GITHUB
+# ASV table
 kosmos_18S_asv_table <- as.data.frame(as(otu_table(kosmos_18S_phyloseq),"matrix"))
 rownames_to_column(kosmos_18S_asv_table,"ASV") -> kosmos_18S_asv_table
+# tax table
 kosmos_18S_tax_table <- as.data.frame(as(tax_table(kosmos_18S_phyloseq),"matrix"))
 rownames_to_column(kosmos_18S_tax_table,"ASV") -> kosmos_18S_tax_table
+# metadata
+kosmos_18S_metadata <- as.data.frame(as.matrix(sample_data(kosmos_18S_phyloseq)))
+rownames_to_column(kosmos_18S_metadata,"SampleID") -> kosmos_18S_metadata
 
-kosmos_18S <- left_join(kosmos_18S_asv_table, kosmos_18S_tax_table, by = "ASV")
-# write.csv(kosmos_18S, "/Users/mmin/Documents/KOSMOS_data_local/kosmos_18S_072720.csv")
+# export three files
+write.csv(kosmos_18S_asv_table, here::here("data", "kosmos_eDNA_data", "kosmos_18S_asv_table.csv"), row.names = FALSE)
+write.csv(kosmos_18S_tax_table, here::here("data", "kosmos_eDNA_data", "kosmos_18S_tax_table.csv"), row.names = FALSE)
+write.csv(kosmos_18S_metadata, here::here("data", "kosmos_eDNA_data", "kosmos_18S_metadata.csv"), row.names = FALSE)
+```
+
+### load KOSMOS data
+```{r}
+# read data
+kosmos_18S_asv_table <- read.csv(here::here("data", "kosmos_eDNA_data", "kosmos_18S_asv_table.csv"), row.names = 1)
+kosmos_18S_tax_table <- read.csv(here::here("data", "kosmos_eDNA_data", "kosmos_18S_tax_table.csv"), row.names = 1)
+kosmos_18S_metadata <- read.csv(here::here("data", "kosmos_eDNA_data", "kosmos_18S_metadata.csv"), row.names = 1)
+
+
+# reformat and join as phyloseq object
+asv_table <- otu_table(kosmos_18S_asv_table,taxa_are_rows = TRUE)
+sample_data <- sample_data(kosmos_18S_metadata)
+tax_table <- tax_table(as.matrix(kosmos_18S_tax_table))
+kosmos_18S_phyloseq <- merge_phyloseq(asv_table,sample_data,tax_table)
+
+# Subset only environmental samples (non-controls)
+kosmos_18S_16_phyloseq <- prune_samples(sample_data(kosmos_18S_phyloseq)$SAMPLING_station_number %in% c("M1","MP"), kosmos_18S_phyloseq)
+kosmos_18S_16_phyloseq <- prune_taxa(taxa_sums(kosmos_18S_16_phyloseq)>0,kosmos_18S_16_phyloseq)
 ```
 
 
@@ -1025,7 +1080,7 @@ kosmos_18S <- left_join(kosmos_18S_asv_table, kosmos_18S_tax_table, by = "ASV")
 
 
 ### Read in metadata, make edits (TD + Classic)
-```{r}
+```{r eval = FALSE}
 metadata <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/12S/for_MBON/decontaminated/092120/12S_master_metadata.csv")
 metadata$sample_name <- as.character(metadata$sample_name)
 
@@ -1140,7 +1195,7 @@ metadata_updated <- column_to_rownames(metadata_updated,"sample_name")
 
 
 ### Fix asv table so that there aren't any leading Xs in the column names (TD only)
-```{r}
+```{r eval = FALSE}
 asv_table <- read.csv(file = "/Users/markusmin/Documents/MBARI-2167/local/eDNA_meta_analysis_local_data/banzai_dada2/12S/for_MBON/decontaminated/092120/12S_master_ASV_table.csv",row.names = 1, check.names = FALSE)
 destroyX = function(es) {
   f = es
@@ -1155,7 +1210,7 @@ asv_table <- destroyX(asv_table)
 ```
 
 ### Load master asv_table, metadata, and tax_table objects
-```{r}
+```{r eval = FALSE}
 asv_table <- otu_table(asv_table,taxa_are_rows = TRUE)
 # rownames(metadata_updated) <- NULL
 # metadata_updated <- column_to_rownames(metadata_updated,"sample_name")
@@ -1167,20 +1222,20 @@ master_phyloseq_allplates <- merge_phyloseq(asv_table,sample_data,tax_table)
 ### Prune phyloseq object
 - Remove plate II (same samples are on plate QQ)
 - Drop the classic sample replicates from plate QQ
-```{r}
+```{r eval = FALSE}
 master_phyloseq_allplates <- prune_samples(sample_data(master_phyloseq_allplates)$libraryID != "II",master_phyloseq_allplates)
 master_phyloseq_allplates <- prune_samples(!(sample_data(master_phyloseq_allplates)$libraryID == "QQ" & sample_data(master_phyloseq_allplates)$PCR_settings == "classic"),master_phyloseq_allplates)
 ```
 
 ### Check summary statistics
-```{r}
+```{r eval = FALSE}
 nsamples(master_phyloseq_allplates)
 ntaxa(master_phyloseq_allplates)
 sum(sample_sums(master_phyloseq_allplates))
 ```
 
 ### Subset out Bacteria and Archaea, terrestrial contaminants
-```{r}
+```{r eval = FALSE}
 #phyloseq_species <- tax_glom(master_phyloseq,taxrank=rank_names(phyloseq)[7], NArm = FALSE)
 
 master_phyloseq_12S <- master_phyloseq_allplates %>%
@@ -1237,21 +1292,48 @@ master_phyloseq_12S <- master_phyloseq_12S %>%
 ```
 
 ### Subset KOSMOS samples and export data
-```{r}
+```{r eval = FALSE}
 # Subset out KOSMOS samples
 kosmos_12S_phyloseq <- prune_samples(sample_data(master_phyloseq_12S)$SAMPLING_project %in% c("KOSMOS"),master_phyloseq_12S)
 kosmos_12S_phyloseq <- prune_taxa(taxa_sums(kosmos_12S_phyloseq)>0,kosmos_12S_phyloseq)
 
-kosmos_12S_16_phyloseq <- prune_samples(sample_data(kosmos_12S_phyloseq)$SAMPLING_station_number %in% c("M1","MP"), kosmos_12S_phyloseq)
-kosmos_12S_16_phyloseq <- prune_taxa(taxa_sums(kosmos_12S_16_phyloseq)>0,kosmos_12S_16_phyloseq)
+# kosmos_12S <- left_join(kosmos_12S_asv_table, kosmos_12S_tax_table, by = "ASV")
+# write.csv(kosmos_12S, "/Users/mmin/Documents/KOSMOS_data_local/kosmos_12S_061620.csv")
 
+# EXPORT FILES FOR UPLOAD TO GITHUB
+# ASV table
 kosmos_12S_asv_table <- as.data.frame(as(otu_table(kosmos_12S_phyloseq),"matrix"))
 rownames_to_column(kosmos_12S_asv_table,"ASV") -> kosmos_12S_asv_table
+# tax table
 kosmos_12S_tax_table <- as.data.frame(as(tax_table(kosmos_12S_phyloseq),"matrix"))
 rownames_to_column(kosmos_12S_tax_table,"ASV") -> kosmos_12S_tax_table
+# metadata
+kosmos_12S_metadata <- as.data.frame(as.matrix(sample_data(kosmos_12S_phyloseq)))
+rownames_to_column(kosmos_12S_metadata,"SampleID") -> kosmos_12S_metadata
 
-kosmos_12S <- left_join(kosmos_12S_asv_table, kosmos_12S_tax_table, by = "ASV")
-# write.csv(kosmos_12S, "/Users/mmin/Documents/KOSMOS_data_local/kosmos_12S_072720.csv")
+# export three files
+write.csv(kosmos_12S_asv_table, here::here("data", "kosmos_eDNA_data", "kosmos_12S_asv_table.csv"), row.names = FALSE)
+write.csv(kosmos_12S_tax_table, here::here("data", "kosmos_eDNA_data", "kosmos_12S_tax_table.csv"), row.names = FALSE)
+write.csv(kosmos_12S_metadata, here::here("data", "kosmos_eDNA_data", "kosmos_12S_metadata.csv"), row.names = FALSE)
+```
+
+### load KOSMOS data
+```{r}
+# read data
+kosmos_12S_asv_table <- read.csv(here::here("data", "kosmos_eDNA_data", "kosmos_12S_asv_table.csv"), row.names = 1)
+kosmos_12S_tax_table <- read.csv(here::here("data", "kosmos_eDNA_data", "kosmos_12S_tax_table.csv"), row.names = 1)
+kosmos_12S_metadata <- read.csv(here::here("data", "kosmos_eDNA_data", "kosmos_12S_metadata.csv"), row.names = 1)
+
+
+# reformat and join as phyloseq object
+asv_table <- otu_table(kosmos_12S_asv_table,taxa_are_rows = TRUE)
+sample_data <- sample_data(kosmos_12S_metadata)
+tax_table <- tax_table(as.matrix(kosmos_12S_tax_table))
+kosmos_12S_phyloseq <- merge_phyloseq(asv_table,sample_data,tax_table)
+
+# Subset only environmental samples (non-controls)
+kosmos_12S_16_phyloseq <- prune_samples(sample_data(kosmos_12S_phyloseq)$SAMPLING_station_number %in% c("M1","MP"), kosmos_12S_phyloseq)
+kosmos_12S_16_phyloseq <- prune_taxa(taxa_sums(kosmos_12S_16_phyloseq)>0,kosmos_12S_16_phyloseq)
 ```
 
 ## 16S rRNA: Plastidial (chloroplast) Reads
